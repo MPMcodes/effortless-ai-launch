@@ -159,7 +159,7 @@ export default function Index() {
         <div className="mx-auto flex max-w-6xl flex-col-reverse items-center gap-10 px-4 py-16 sm:px-6 lg:flex-row lg:gap-14 lg:px-8 lg:py-24">
           <div className="flex-1 text-center lg:text-left">
             <div className="mb-4 inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-              <Sparkles size={14} /> Helping local businesses since 2018
+              <Sparkles size={14} /> Built for businesses like yours
             </div>
             <h1 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
               Smart AI Tools for{" "}
