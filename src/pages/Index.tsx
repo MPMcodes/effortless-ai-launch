@@ -120,7 +120,7 @@ export default function Index() {
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold text-lg">B</div>
             <div>
               <span className="text-lg font-bold tracking-tight">Baker & Sons</span>
-              <span className="block text-[11px] text-muted-foreground -mt-0.5 tracking-wide">Your Neighborhood IT Team</span>
+              <span className="block text-[11px] text-muted-foreground -mt-0.5 tracking-wide">A Family Team, Building Yours</span>
             </div>
           </a>
           <div className="hidden items-center gap-7 md:flex">
@@ -413,7 +413,7 @@ export default function Index() {
                 <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold">B</div>
                 <span className="text-lg font-bold">Baker & Sons</span>
               </div>
-              <p className="mt-3 text-sm text-muted-foreground">Your neighborhood IT team. Helping small businesses thrive with simple, friendly tech.</p>
+              <p className="mt-3 text-sm text-muted-foreground">A dad and three sons on a mission to help small businesses thrive with simple, friendly tech.</p>
             </div>
             <div>
               <h4 className="font-semibold mb-3 text-sm">Quick Links</h4>
