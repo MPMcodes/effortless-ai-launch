@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -93,9 +93,23 @@ const PRICING = [
   },
 ];
 
+const HERO_IMAGES = [
+  { src: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=700&h=500&fit=crop", alt: "IT team collaborating in modern office" },
+  { src: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=700&h=500&fit=crop", alt: "Small business owner using laptop" },
+  { src: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=700&h=500&fit=crop", alt: "Team working on IT solutions together" },
+  { src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&h=500&fit=crop", alt: "Business professionals discussing technology" },
+];
+
 export default function Index() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [heroIdx, setHeroIdx] = useState(0);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHeroIdx((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* NAV */}
@@ -161,15 +175,28 @@ export default function Index() {
               </Button>
             </div>
           </div>
-          <div className="flex-1">
-            <img
-              src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=700&h=500&fit=crop"
-              alt="Happy small business owner using technology"
-              className="w-full rounded-2xl shadow-2xl shadow-primary/10 object-cover"
-              loading="lazy"
-              width={700}
-              height={500}
-            />
+          <div className="flex-1 relative overflow-hidden rounded-2xl shadow-2xl shadow-primary/10" style={{ minHeight: 350 }}>
+            {HERO_IMAGES.map((img, i) => (
+              <img
+                key={img.src}
+                src={img.src}
+                alt={img.alt}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${i === heroIdx ? "opacity-100" : "opacity-0"}`}
+                loading={i === 0 ? "eager" : "lazy"}
+                width={700}
+                height={500}
+              />
+            ))}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+              {HERO_IMAGES.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setHeroIdx(i)}
+                  className={`h-2 rounded-full transition-all ${i === heroIdx ? "w-6 bg-primary" : "w-2 bg-white/60"}`}
+                  aria-label={`Show image ${i + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
