@@ -96,7 +96,7 @@ const PRICING = [
 const HERO_IMAGES = [
   { src: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=700&h=500&fit=crop", alt: "IT team collaborating in modern office" },
   { src: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=700&h=500&fit=crop", alt: "Small business owner using laptop" },
-  { src: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=700&h=500&fit=crop", alt: "Team working on IT solutions together" },
+  { src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&h=500&fit=crop", alt: "Team working on IT solutions together" },
   { src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&h=500&fit=crop", alt: "Business professionals discussing technology" },
 ];
 
