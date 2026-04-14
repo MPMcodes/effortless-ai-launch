@@ -175,7 +175,7 @@ export default function Index() {
               </Button>
             </div>
           </div>
-          <div className="flex-1 relative overflow-hidden rounded-2xl shadow-2xl shadow-primary/10" style={{ minHeight: 350 }}>
+          <div className="w-full lg:flex-1 relative overflow-hidden rounded-2xl shadow-2xl shadow-primary/10 aspect-[7/5] lg:aspect-auto" style={{ minHeight: 350 }}>
             {HERO_IMAGES.map((img, i) => (
               <img
                 key={img.src}
