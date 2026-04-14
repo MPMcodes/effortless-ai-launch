@@ -24,11 +24,11 @@ import {
   Phone,
   MapPin,
   Facebook,
-  Twitter,
-  Linkedin,
   Instagram,
   Check,
-  ChevronRight,
+  Heart,
+  Sparkles,
+  HandHeart,
 } from "lucide-react";
 
 const NAV_LINKS = [
@@ -39,56 +39,56 @@ const NAV_LINKS = [
 ];
 
 const SERVICES = [
-  { icon: Users, title: "Smart CRM", desc: "Keep all your customers organized in one simple dashboard. No spreadsheets needed." },
-  { icon: MessageSquare, title: "Automated Messaging", desc: "Text, email & SMS follow-ups sent automatically. Never miss a lead again." },
-  { icon: CalendarCheck, title: "Online Booking", desc: "Let customers book appointments 24/7. Syncs with your calendar instantly." },
-  { icon: Star, title: "Reviews & Reputation", desc: "Get more 5-star reviews on autopilot. We make it easy for happy customers to share." },
-  { icon: CreditCard, title: "Easy Payments", desc: "Accept payments online with simple invoicing. Get paid faster, stress-free." },
-  { icon: Bot, title: "AI Chat & Voice", desc: "An AI assistant answers calls and chats so you never miss a customer — even at 2 AM." },
+  { icon: Users, title: "Smart CRM", desc: "Keep track of your customers the easy way — like a Rolodex, but way better." },
+  { icon: MessageSquare, title: "Automated Follow-Ups", desc: "Friendly texts and emails sent at just the right time. Your customers will feel the love." },
+  { icon: CalendarCheck, title: "Online Booking", desc: "Customers pick a time that works, you show up ready. Simple as that." },
+  { icon: Star, title: "Reviews on Autopilot", desc: "Happy customers spread the word — we just make it easier for them." },
+  { icon: CreditCard, title: "Easy Invoicing", desc: "Send invoices, get paid. No chasing people down or messy paperwork." },
+  { icon: Bot, title: "AI Assistant", desc: "A friendly helper that answers questions when you're busy doing what you do best." },
 ];
 
 const STEPS = [
-  { num: "01", icon: PhoneCall, title: "Book a Free Call", desc: "Tell us about your business. We'll show you exactly how AI can help — no jargon." },
-  { num: "02", icon: Settings, title: "We Set Everything Up", desc: "Our team builds and configures your entire system. You don't lift a finger." },
-  { num: "03", icon: TrendingUp, title: "You Grow", desc: "Sit back as leads flow in, reviews stack up, and your business runs smoother than ever." },
+  { num: "1", icon: PhoneCall, title: "Let's Chat", desc: "We'll grab a coffee (virtually!) and learn about your business. No sales pitch, promise." },
+  { num: "2", icon: Settings, title: "We Build It For You", desc: "Our team sets everything up while you keep doing what you love. Zero homework." },
+  { num: "3", icon: TrendingUp, title: "Watch It Grow", desc: "More customers, more reviews, less stress. That's the Baker & Sons way." },
 ];
 
 const BENEFITS = [
-  { icon: Clock, title: "Save 10+ Hours a Week", desc: "Automate the busywork so you can focus on what matters most." },
-  { icon: UserPlus, title: "Get More Customers", desc: "Capture every lead with automated follow-ups and online booking." },
-  { icon: GraduationCap, title: "Zero Learning Curve", desc: "We handle the tech. You just use the simple dashboard." },
-  { icon: LayoutGrid, title: "All-In-One Platform", desc: "Replace 6+ separate tools with one easy system." },
+  { icon: Clock, title: "Get Your Evenings Back", desc: "Automate the busywork so you can make it to little league practice." },
+  { icon: UserPlus, title: "More Happy Customers", desc: "Never let a lead slip through the cracks again." },
+  { icon: GraduationCap, title: "We Speak Human", desc: "No tech jargon. We explain everything in plain English." },
+  { icon: LayoutGrid, title: "One Simple Dashboard", desc: "Replace that mess of apps with one easy-to-use system." },
 ];
 
 const TESTIMONIALS = [
-  { name: "Sarah Mitchell", role: "Owner, Mitchell's Bakery", quote: "Baker & Sons completely transformed how I manage my business. I went from drowning in spreadsheets to having everything automated. My revenue is up 40%!" },
-  { name: "James Rodriguez", role: "Founder, Rodriguez Plumbing", quote: "I was skeptical about AI, but these guys made it so simple. Now I get twice as many bookings and never miss a customer call. Game changer." },
-  { name: "Emily Chen", role: "Director, Chen Dental Care", quote: "The automated review system alone was worth it. We went from 12 Google reviews to over 200 in six months. Patients love the easy booking too." },
+  { name: "Sarah M.", role: "Mitchell's Bakery", quote: "These folks are the real deal. I went from sticky notes everywhere to actually knowing what's going on in my business. My regulars get birthday texts now — they love it!" },
+  { name: "James R.", role: "Rodriguez Plumbing", quote: "I'm a plumber, not a tech guy. Baker & Sons made it so easy I almost felt guilty. Now I get calls booked while I'm under a sink. Can't beat that." },
+  { name: "Emily C.", role: "Chen Family Dental", quote: "We went from 12 Google reviews to over 200. Patients actually thank us for the appointment reminders. That's never happened before!" },
 ];
 
 const PRICING = [
   {
     tier: "Starter",
     price: "$297",
-    desc: "Perfect for getting started with automation",
-    features: ["Smart CRM", "Automated Email & SMS", "Online Booking", "Basic Reporting", "Email Support"],
-    cta: "Get Started",
+    desc: "Great for getting your feet wet",
+    features: ["Smart CRM", "Email & Text Follow-Ups", "Online Booking", "Basic Reports", "Email Support"],
+    cta: "Let's Do This",
     popular: false,
   },
   {
     tier: "Growth",
     price: "$497",
-    desc: "Everything you need to scale fast",
-    features: ["Everything in Starter", "AI Chat Assistant", "Review Automation", "Payment Processing", "Funnels & Workflows", "Priority Support"],
-    cta: "Most Popular",
+    desc: "Our most popular — everything you need",
+    features: ["Everything in Starter", "AI Chat Assistant", "Review Automation", "Payment Processing", "Workflows & Funnels", "Priority Support"],
+    cta: "Best Value",
     popular: true,
   },
   {
-    tier: "Enterprise",
+    tier: "VIP",
     price: "$997",
-    desc: "Full-service AI automation suite",
-    features: ["Everything in Growth", "AI Voice Assistant", "Custom Integrations", "Advanced Analytics", "Dedicated Account Manager", "White-Glove Setup"],
-    cta: "Contact Us",
+    desc: "The full treatment — we handle it all",
+    features: ["Everything in Growth", "AI Voice Assistant", "Custom Integrations", "Advanced Analytics", "Your Own Account Manager", "White-Glove Setup"],
+    cta: "Talk to Us",
     popular: false,
   },
 ];
@@ -110,26 +110,27 @@ export default function Index() {
     }, 4000);
     return () => clearInterval(timer);
   }, []);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* NAV */}
       <nav className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <a href="#" className="flex items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-lg">B</div>
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+          <a href="#" className="flex items-center gap-2.5">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold text-lg">B</div>
             <div>
-              <span className="text-lg font-bold tracking-tight">Baker &amp; Sons</span>
-              <span className="block text-xs text-muted-foreground -mt-1">IT Automation Made Effortless</span>
+              <span className="text-lg font-bold tracking-tight">Baker & Sons</span>
+              <span className="block text-[11px] text-muted-foreground -mt-0.5 tracking-wide">Your Neighborhood IT Team</span>
             </div>
           </a>
-          <div className="hidden items-center gap-8 md:flex">
+          <div className="hidden items-center gap-7 md:flex">
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
+              <a key={l.href} href={l.href} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
                 {l.label}
               </a>
             ))}
-            <Button asChild>
-              <a href="#contact">Free Consultation</a>
+            <Button asChild className="rounded-full px-6">
+              <a href="#contact">Let's Talk</a>
             </Button>
           </div>
           <button className="md:hidden" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu">
@@ -138,14 +139,14 @@ export default function Index() {
         </div>
         {mobileOpen && (
           <div className="border-t md:hidden">
-            <div className="flex flex-col gap-2 px-4 py-4">
+            <div className="flex flex-col gap-1 px-4 py-3">
               {NAV_LINKS.map((l) => (
-                <a key={l.href} href={l.href} onClick={() => setMobileOpen(false)} className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground">
+                <a key={l.href} href={l.href} onClick={() => setMobileOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-primary/10 hover:text-primary">
                   {l.label}
                 </a>
               ))}
-              <Button asChild className="mt-2">
-                <a href="#contact" onClick={() => setMobileOpen(false)}>Free Consultation</a>
+              <Button asChild className="mt-2 rounded-full">
+                <a href="#contact" onClick={() => setMobileOpen(false)}>Let's Talk</a>
               </Button>
             </div>
           </div>
@@ -155,27 +156,30 @@ export default function Index() {
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
-        <div className="mx-auto flex max-w-7xl flex-col-reverse items-center gap-12 px-4 py-20 sm:px-6 lg:flex-row lg:gap-16 lg:px-8 lg:py-28">
+        <div className="mx-auto flex max-w-6xl flex-col-reverse items-center gap-10 px-4 py-16 sm:px-6 lg:flex-row lg:gap-14 lg:px-8 lg:py-24">
           <div className="flex-1 text-center lg:text-left">
-            <h1 className="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-              AI Tools for Your Small Business –{" "}
-              <span className="text-primary">Zero Tech Hassle</span>
+            <div className="mb-4 inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+              <Sparkles size={14} /> Helping local businesses since 2018
+            </div>
+            <h1 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+              Smart AI Tools for{" "}
+              <span className="text-primary">Your</span> Small Business
             </h1>
-            <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground lg:mx-0">
-              We set up and manage everything so you can focus on your customers. No tech skills needed — just results.
+            <p className="mx-auto mt-5 max-w-lg text-base text-muted-foreground lg:mx-0 leading-relaxed">
+              We're the friendly tech team you always wished you had. We set up everything, explain it in plain English, and stick around to make sure it works.
             </p>
-            <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
-              <Button size="lg" asChild className="gap-2 text-base">
+            <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row lg:justify-start">
+              <Button size="lg" asChild className="gap-2 rounded-full px-7 text-base">
                 <a href="#contact">
                   Get Your Free Demo <ArrowRight size={18} />
                 </a>
               </Button>
-              <Button size="lg" variant="outline" asChild className="gap-2 text-base">
-                <a href="#how-it-works">See How It Works</a>
+              <Button size="lg" variant="ghost" asChild className="gap-2 text-base text-muted-foreground">
+                <a href="#how-it-works">See How It Works ↓</a>
               </Button>
             </div>
           </div>
-          <div className="w-full lg:flex-1 relative overflow-hidden rounded-2xl shadow-2xl shadow-primary/10 aspect-[7/5] lg:aspect-auto" style={{ minHeight: 350 }}>
+          <div className="w-full lg:flex-1 relative overflow-hidden rounded-3xl shadow-xl shadow-primary/10 aspect-[7/5] lg:aspect-auto" style={{ minHeight: 340 }}>
             {HERO_IMAGES.map((img, i) => (
               <img
                 key={img.src}
@@ -192,7 +196,7 @@ export default function Index() {
                 <button
                   key={i}
                   onClick={() => setHeroIdx(i)}
-                  className={`h-2 rounded-full transition-all ${i === heroIdx ? "w-6 bg-primary" : "w-2 bg-white/60"}`}
+                  className={`h-2.5 rounded-full transition-all ${i === heroIdx ? "w-7 bg-primary" : "w-2.5 bg-white/50"}`}
                   aria-label={`Show image ${i + 1}`}
                 />
               ))}
@@ -202,22 +206,22 @@ export default function Index() {
       </section>
 
       {/* SERVICES */}
-      <section id="services" className="bg-muted/40 py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary">What We Offer</p>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Everything Your Business Needs in One Place</h2>
-            <p className="mt-4 text-muted-foreground">Powerful AI tools, simplified. We handle the setup — you enjoy the results.</p>
+      <section id="services" className="bg-muted/30 py-16 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary">What We Do</p>
+            <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Tools That Actually Make Your Life Easier</h2>
+            <p className="mt-3 text-muted-foreground text-sm">No fluff, no complicated setup. Just stuff that works.</p>
           </div>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((s) => (
-              <Card key={s.title} className="group border-0 bg-background shadow-md transition-all hover:shadow-xl hover:-translate-y-1">
-                <CardContent className="p-6">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                    <s.icon size={24} />
+              <Card key={s.title} className="group border border-border/50 bg-background rounded-2xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-0.5 hover:border-primary/30">
+                <CardContent className="p-5">
+                  <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                    <s.icon size={22} />
                   </div>
-                  <h3 className="text-lg font-semibold">{s.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                  <h3 className="text-base font-semibold">{s.title}</h3>
+                  <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
                 </CardContent>
               </Card>
             ))}
@@ -226,26 +230,20 @@ export default function Index() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section id="how-it-works" className="py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary">Simple Process</p>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Up and Running in 3 Easy Steps</h2>
+      <section id="how-it-works" className="py-16 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary">Easy as 1-2-3</p>
+            <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Here's How We Get You Started</h2>
           </div>
-          <div className="mt-14 grid gap-8 md:grid-cols-3">
-            {STEPS.map((s, i) => (
-              <div key={s.num} className="relative text-center">
-                {i < STEPS.length - 1 && (
-                  <div className="absolute right-0 top-12 hidden w-full translate-x-1/2 md:block">
-                    <ChevronRight className="mx-auto text-border" size={32} />
-                  </div>
-                )}
-                <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/25">
-                  <s.icon size={32} />
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
+            {STEPS.map((s) => (
+              <div key={s.num} className="text-center">
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-md shadow-primary/20 text-2xl font-bold">
+                  {s.num}
                 </div>
-                <span className="text-xs font-bold uppercase tracking-widest text-primary">Step {s.num}</span>
-                <h3 className="mt-2 text-xl font-bold">{s.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
+                <h3 className="text-lg font-bold">{s.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -253,20 +251,23 @@ export default function Index() {
       </section>
 
       {/* BENEFITS */}
-      <section className="bg-primary py-20 sm:py-28 text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Why Small Businesses Love Us</h2>
-            <p className="mt-4 text-primary-foreground/80">Real results, not empty promises.</p>
+      <section className="bg-primary/5 py-16 sm:py-24 border-y border-primary/10">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-xl text-center">
+            <div className="inline-flex items-center gap-1.5 mb-3 text-primary">
+              <Heart size={18} fill="currentColor" />
+            </div>
+            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Why Folks Choose Baker & Sons</h2>
+            <p className="mt-3 text-muted-foreground text-sm">We treat every business like it's our own.</p>
           </div>
-          <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {BENEFITS.map((b) => (
-              <div key={b.title} className="text-center">
-                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-primary-foreground/15">
-                  <b.icon size={28} />
+              <div key={b.title} className="text-center rounded-2xl bg-background p-6 shadow-sm border border-border/50">
+                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <b.icon size={24} />
                 </div>
-                <h3 className="text-lg font-bold">{b.title}</h3>
-                <p className="mt-2 text-sm text-primary-foreground/80">{b.desc}</p>
+                <h3 className="text-base font-bold">{b.title}</h3>
+                <p className="mt-1.5 text-sm text-muted-foreground">{b.desc}</p>
               </div>
             ))}
           </div>
@@ -274,24 +275,24 @@ export default function Index() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary">Testimonials</p>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Trusted by Business Owners Like You</h2>
+      <section className="py-16 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary">Happy Customers</p>
+            <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Don't Take Our Word For It</h2>
           </div>
-          <div className="mt-14 grid gap-8 md:grid-cols-3">
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
             {TESTIMONIALS.map((t) => (
-              <Card key={t.name} className="border-0 shadow-md">
-                <CardContent className="p-6">
-                  <div className="mb-4 flex gap-1 text-primary">
+              <Card key={t.name} className="border border-border/50 shadow-sm rounded-2xl">
+                <CardContent className="p-5">
+                  <div className="mb-3 flex gap-0.5 text-primary">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={16} fill="currentColor" />
+                      <Star key={i} size={15} fill="currentColor" />
                     ))}
                   </div>
-                  <p className="text-sm leading-relaxed text-muted-foreground italic">"{t.quote}"</p>
-                  <div className="mt-6 flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary font-bold text-sm">
+                  <p className="text-sm leading-relaxed text-muted-foreground">"{t.quote}"</p>
+                  <div className="mt-5 flex items-center gap-3">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary font-bold text-xs">
                       {t.name.split(" ").map((n) => n[0]).join("")}
                     </div>
                     <div>
@@ -307,37 +308,37 @@ export default function Index() {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" className="bg-muted/40 py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+      <section id="pricing" className="bg-muted/30 py-16 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-xl text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">Pricing</p>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Simple, Transparent Pricing</h2>
-            <p className="mt-4 text-muted-foreground">No hidden fees. Cancel anytime.</p>
+            <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Honest Pricing. No Surprises.</h2>
+            <p className="mt-3 text-muted-foreground text-sm">Cancel anytime. We earn your business every month.</p>
           </div>
-          <div className="mt-14 grid gap-8 md:grid-cols-3">
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
             {PRICING.map((p) => (
-              <Card key={p.tier} className={`relative border-0 shadow-md ${p.popular ? "ring-2 ring-primary shadow-xl scale-105" : ""}`}>
+              <Card key={p.tier} className={`relative rounded-2xl border shadow-sm ${p.popular ? "ring-2 ring-primary shadow-lg border-primary/30 scale-[1.03]" : "border-border/50"}`}>
                 {p.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-bold text-primary-foreground">
-                    Most Popular
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-bold text-primary-foreground">
+                    ⭐ Most Popular
                   </div>
                 )}
-                <CardContent className="p-8">
-                  <h3 className="text-xl font-bold">{p.tier}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{p.desc}</p>
-                  <div className="mt-6">
-                    <span className="text-4xl font-extrabold">{p.price}</span>
-                    <span className="text-muted-foreground">/mo</span>
+                <CardContent className="p-6">
+                  <h3 className="text-lg font-bold">{p.tier}</h3>
+                  <p className="mt-1 text-xs text-muted-foreground">{p.desc}</p>
+                  <div className="mt-5">
+                    <span className="text-3xl font-extrabold">{p.price}</span>
+                    <span className="text-muted-foreground text-sm">/mo</span>
                   </div>
-                  <ul className="mt-6 space-y-3">
+                  <ul className="mt-5 space-y-2.5">
                     {p.features.map((f) => (
                       <li key={f} className="flex items-center gap-2 text-sm">
-                        <Check size={16} className="text-primary shrink-0" />
+                        <Check size={15} className="text-primary shrink-0" />
                         {f}
                       </li>
                     ))}
                   </ul>
-                  <Button asChild className={`mt-8 w-full ${p.popular ? "" : "variant-outline"}`} variant={p.popular ? "default" : "outline"}>
+                  <Button asChild className={`mt-6 w-full rounded-full ${p.popular ? "" : ""}`} variant={p.popular ? "default" : "outline"}>
                     <a href="#contact">{p.cta}</a>
                   </Button>
                 </CardContent>
@@ -348,49 +349,53 @@ export default function Index() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-2">
+      <section id="contact" className="py-16 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-2">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-widest text-primary">Get Started</p>
-              <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Ready to Automate Your Business?</h2>
-              <p className="mt-4 text-muted-foreground">Book your free consultation today. No pressure, no jargon — just a friendly chat about how AI can help you grow.</p>
-              <div className="mt-8 space-y-4">
+              <div className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary mb-3">
+                <HandHeart size={14} /> We'd love to hear from you
+              </div>
+              <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Let's Get Your Business Growing</h2>
+              <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
+                No pressure, no sales pitch. Just a friendly conversation about what's possible for your business. We're real people — not a call center.
+              </p>
+              <div className="mt-6 space-y-3">
                 <div className="flex items-center gap-3 text-sm">
-                  <Mail className="text-primary shrink-0" size={20} />
+                  <Mail className="text-primary shrink-0" size={18} />
                   <span>hello@bakerandsons.com</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm">
-                  <Phone className="text-primary shrink-0" size={20} />
+                  <Phone className="text-primary shrink-0" size={18} />
                   <span>(555) 123-4567</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm">
-                  <MapPin className="text-primary shrink-0" size={20} />
-                  <span>Serving small businesses nationwide</span>
+                  <MapPin className="text-primary shrink-0" size={18} />
+                  <span>Proudly serving small businesses nationwide</span>
                 </div>
               </div>
             </div>
-            <Card className="border-0 shadow-lg">
-              <CardContent className="p-8">
-                <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+            <Card className="border border-border/50 shadow-md rounded-2xl">
+              <CardContent className="p-6">
+                <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
                   <div>
-                    <label htmlFor="name" className="mb-1.5 block text-sm font-medium">Your Name</label>
-                    <Input id="name" placeholder="John Smith" />
+                    <label htmlFor="name" className="mb-1 block text-sm font-medium">Your Name</label>
+                    <Input id="name" placeholder="John Smith" className="rounded-xl" />
                   </div>
                   <div>
-                    <label htmlFor="email" className="mb-1.5 block text-sm font-medium">Email</label>
-                    <Input id="email" type="email" placeholder="john@business.com" />
+                    <label htmlFor="email" className="mb-1 block text-sm font-medium">Email</label>
+                    <Input id="email" type="email" placeholder="john@mybusiness.com" className="rounded-xl" />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="mb-1.5 block text-sm font-medium">Phone</label>
-                    <Input id="phone" type="tel" placeholder="(555) 000-0000" />
+                    <label htmlFor="phone" className="mb-1 block text-sm font-medium">Phone</label>
+                    <Input id="phone" type="tel" placeholder="(555) 000-0000" className="rounded-xl" />
                   </div>
                   <div>
-                    <label htmlFor="message" className="mb-1.5 block text-sm font-medium">How can we help?</label>
-                    <Textarea id="message" placeholder="Tell us about your business and what you'd like to automate..." rows={4} />
+                    <label htmlFor="message" className="mb-1 block text-sm font-medium">Tell us about your business</label>
+                    <Textarea id="message" placeholder="What kind of business do you run? What's your biggest headache right now?" rows={3} className="rounded-xl" />
                   </div>
-                  <Button type="submit" className="w-full gap-2" size="lg">
-                    Book My Free Consultation <ArrowRight size={18} />
+                  <Button type="submit" className="w-full gap-2 rounded-full" size="lg">
+                    Book a Friendly Chat <ArrowRight size={18} />
                   </Button>
                 </form>
               </CardContent>
@@ -400,37 +405,37 @@ export default function Index() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t bg-foreground text-background">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <footer className="border-t bg-muted/40">
+        <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
           <div className="grid gap-8 md:grid-cols-3">
             <div>
-              <div className="flex items-center gap-2">
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold">B</div>
-                <span className="text-lg font-bold">Baker &amp; Sons</span>
+              <div className="flex items-center gap-2.5">
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold">B</div>
+                <span className="text-lg font-bold">Baker & Sons</span>
               </div>
-              <p className="mt-3 text-sm text-background/60">IT Automation Made Effortless. Helping small businesses thrive with simple AI tools.</p>
+              <p className="mt-3 text-sm text-muted-foreground">Your neighborhood IT team. Helping small businesses thrive with simple, friendly tech.</p>
             </div>
             <div>
-              <h4 className="font-semibold mb-3">Quick Links</h4>
-              <div className="flex flex-col gap-2">
+              <h4 className="font-semibold mb-3 text-sm">Quick Links</h4>
+              <div className="flex flex-col gap-1.5">
                 {NAV_LINKS.map((l) => (
-                  <a key={l.href} href={l.href} className="text-sm text-background/60 hover:text-background transition-colors">{l.label}</a>
+                  <a key={l.href} href={l.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">{l.label}</a>
                 ))}
               </div>
             </div>
             <div>
-              <h4 className="font-semibold mb-3">Connect</h4>
-              <div className="flex gap-3">
-                {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
-                  <a key={i} href="#" className="flex h-9 w-9 items-center justify-center rounded-full bg-background/10 text-background/60 hover:bg-primary hover:text-primary-foreground transition-colors">
+              <h4 className="font-semibold mb-3 text-sm">Follow Along</h4>
+              <div className="flex gap-2.5">
+                {[Facebook, Instagram].map((Icon, i) => (
+                  <a key={i} href="#" className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
                     <Icon size={16} />
                   </a>
                 ))}
               </div>
             </div>
           </div>
-          <div className="mt-8 border-t border-background/10 pt-8 text-center text-sm text-background/40">
-            &copy; {new Date().getFullYear()} Baker &amp; Sons. All rights reserved.
+          <div className="mt-8 border-t pt-6 text-center text-xs text-muted-foreground">
+            © {new Date().getFullYear()} Baker & Sons. Made with <Heart size={12} className="inline text-primary" fill="currentColor" /> for small businesses everywhere.
           </div>
         </div>
       </footer>
