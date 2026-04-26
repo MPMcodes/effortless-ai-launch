@@ -151,7 +151,7 @@ export default function Index() {
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold text-lg">B</div>
             <div>
               <span className="text-lg font-bold tracking-tight">Baker & Sons</span>
-              <span className="block text-[11px] text-muted-foreground -mt-0.5 tracking-wide">Family-Run. Tech Done Right.</span>
+              <span className="block text-[11px] text-muted-foreground -mt-0.5 tracking-wide">Tech for Small Business</span>
             </div>
           </a>
           <div className="hidden items-center gap-7 md:flex">
