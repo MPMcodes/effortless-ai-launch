@@ -69,29 +69,60 @@ const TESTIMONIALS = [
 const PRICING = [
   {
     tier: "Starter",
-    price: "$297",
-    desc: "Great for getting your feet wet",
-    features: ["Smart CRM", "Email & Text Follow-Ups", "Online Booking", "Basic Reports", "Email Support"],
-    cta: "Let's Do This",
+    price: "$199",
+    features: [
+      "Customer-built website (up to 5 pages)",
+      "Mobile-optimized design",
+      "AI chat widget (FAQ-trained)",
+      "Custom domain + hosting",
+      "Monthly content refresh",
+      "Email support",
+    ],
+    cta: "Get Started",
     popular: false,
   },
   {
     tier: "Growth",
-    price: "$497",
-    desc: "Our most popular — everything you need",
-    features: ["Everything in Starter", "AI Chat Assistant", "Review Automation", "Payment Processing", "Workflows & Funnels", "Priority Support"],
-    cta: "Best Value",
+    price: "$349",
+    features: [
+      "Everything in Starter",
+      "Up to 10 pages",
+      "AI live chat with human handoff",
+      "Lead capture + CRM sync",
+      "SEO optimization",
+      "Priority support",
+    ],
+    cta: "Choose Growth",
     popular: true,
   },
   {
-    tier: "VIP",
-    price: "$997",
-    desc: "The full treatment — we handle it all",
-    features: ["Everything in Growth", "AI Voice Assistant", "Custom Integrations", "Advanced Analytics", "Your Own Account Manager", "White-Glove Setup"],
-    cta: "Talk to Us",
+    tier: "Pro",
+    price: "$500",
+    features: [
+      "Everything in Growth",
+      "Unlimited pages",
+      "Voice AI + SMS follow-up",
+      "Google Ads integration",
+      "Monthly strategy call",
+    ],
+    cta: "Go Pro",
     popular: false,
   },
 ];
+
+const SETUP_FEE = {
+  label: "One-Time Setup Fee",
+  price: "$1,500",
+  priceSuffix: "flat",
+  subtitle: "Required with any subscription · paid once",
+  includes: [
+    "Brand discovery session",
+    "Custom design direction",
+    "AI chatbot training on your content",
+    "Domain + integrations setup",
+    "Onboarding walkthrough",
+  ],
+};
 
 const HERO_IMAGES = [
   { src: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=700&h=500&fit=crop", alt: "IT team collaborating in modern office" },
@@ -315,36 +346,63 @@ export default function Index() {
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Honest Pricing. No Surprises.</h2>
             <p className="mt-3 text-muted-foreground text-sm">Cancel anytime. We earn your business every month.</p>
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-12 grid gap-6 md:grid-cols-3 items-stretch">
             {PRICING.map((p) => (
-              <Card key={p.tier} className={`relative rounded-2xl border shadow-sm ${p.popular ? "ring-2 ring-primary shadow-lg border-primary/30 scale-[1.03]" : "border-border/50"}`}>
+              <Card key={p.tier} className={`relative flex flex-col rounded-2xl border shadow-sm ${p.popular ? "ring-2 ring-primary shadow-lg border-2 border-primary" : "border-border/50"}`}>
                 {p.popular && (
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-bold text-primary-foreground">
                     ⭐ Most Popular
                   </div>
                 )}
-                <CardContent className="p-6">
+                <CardContent className="p-6 flex flex-col flex-1">
                   <h3 className="text-lg font-bold">{p.tier}</h3>
-                  <p className="mt-1 text-xs text-muted-foreground">{p.desc}</p>
-                  <div className="mt-5">
+                  <div className="mt-4">
                     <span className="text-3xl font-extrabold">{p.price}</span>
                     <span className="text-muted-foreground text-sm">/mo</span>
                   </div>
-                  <ul className="mt-5 space-y-2.5">
+                  <p className="mt-1 text-xs text-muted-foreground">monthly subscription · no contract</p>
+                  <ul className="mt-5 space-y-2.5 flex-1">
                     {p.features.map((f) => (
-                      <li key={f} className="flex items-center gap-2 text-sm">
-                        <Check size={15} className="text-primary shrink-0" />
-                        {f}
+                      <li key={f} className="flex items-start gap-2 text-sm">
+                        <Check size={15} className="text-green-600 shrink-0 mt-0.5" />
+                        <span>{f}</span>
                       </li>
                     ))}
                   </ul>
-                  <Button asChild className={`mt-6 w-full rounded-full ${p.popular ? "" : ""}`} variant={p.popular ? "default" : "outline"}>
+                  <Button asChild className="mt-6 w-full rounded-full" variant={p.popular ? "default" : "outline"}>
                     <a href="#contact">{p.cta}</a>
                   </Button>
                 </CardContent>
               </Card>
             ))}
           </div>
+
+          {/* One-Time Setup Fee */}
+          <Card className="mt-8 rounded-2xl border border-border/50 bg-muted/60 shadow-sm">
+            <CardContent className="p-6 sm:p-8">
+              <div className="grid gap-6 md:grid-cols-3 md:items-center">
+                <div className="md:col-span-1">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">{SETUP_FEE.label}</p>
+                  <div className="mt-2 flex items-baseline gap-2">
+                    <span className="text-3xl font-extrabold">{SETUP_FEE.price}</span>
+                    <span className="text-muted-foreground text-sm">{SETUP_FEE.priceSuffix}</span>
+                  </div>
+                  <p className="mt-2 text-xs text-muted-foreground">{SETUP_FEE.subtitle}</p>
+                </div>
+                <div className="md:col-span-2">
+                  <p className="text-sm font-semibold mb-3">Includes:</p>
+                  <ul className="grid gap-2 sm:grid-cols-2">
+                    {SETUP_FEE.includes.map((f) => (
+                      <li key={f} className="flex items-start gap-2 text-sm">
+                        <Check size={15} className="text-green-600 shrink-0 mt-0.5" />
+                        <span>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
