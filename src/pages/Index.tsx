@@ -364,7 +364,7 @@ export default function Index() {
                   <ul className="mt-5 space-y-2.5 flex-1">
                     {p.features.map((f) => (
                       <li key={f} className="flex items-start gap-2 text-sm">
-                        <Check size={15} className="text-green-600 shrink-0 mt-0.5" />
+                        <Check size={15} className="text-primary shrink-0 mt-0.5" />
                         <span>{f}</span>
                       </li>
                     ))}
@@ -394,7 +394,7 @@ export default function Index() {
                   <ul className="grid gap-2 sm:grid-cols-2">
                     {SETUP_FEE.includes.map((f) => (
                       <li key={f} className="flex items-start gap-2 text-sm">
-                        <Check size={15} className="text-green-600 shrink-0 mt-0.5" />
+                        <Check size={15} className="text-primary shrink-0 mt-0.5" />
                         <span>{f}</span>
                       </li>
                     ))}
