@@ -138,7 +138,7 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* NAV */}
-      <nav className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <nav className="sticky top-0 z-50 border-b border-[#E2E8F0] bg-white">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
           <a href="#" className="flex items-center gap-2.5">
             <PingPongVideo
@@ -233,7 +233,7 @@ export default function Index() {
       </section>
 
       {/* SERVICES */}
-      <section id="services" className="bg-muted/30 py-16 sm:py-24">
+      <section id="services" className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">What We Do</p>
@@ -242,7 +242,7 @@ export default function Index() {
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((s) => (
-              <Card key={s.title} className="group border border-border/50 bg-background rounded-2xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-0.5 hover:border-primary/30">
+              <Card key={s.title} className="group border border-[#E2E8F0] bg-white rounded-2xl shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5">
                 <CardContent className="p-5">
                   <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                     <s.icon size={22} />
@@ -257,7 +257,7 @@ export default function Index() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section id="how-it-works" className="py-16 sm:py-24">
+      <section id="how-it-works" className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">Easy as 1-2-3</p>
@@ -278,7 +278,7 @@ export default function Index() {
       </section>
 
       {/* BENEFITS */}
-      <section className="bg-primary/5 py-16 sm:py-24 border-y border-primary/10">
+      <section className="bg-[#F1F5F9] py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <div className="inline-flex items-center gap-1.5 mb-3 text-primary">
@@ -289,7 +289,7 @@ export default function Index() {
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {BENEFITS.map((b) => (
-              <div key={b.title} className="text-center rounded-2xl bg-background p-6 shadow-sm border border-border/50">
+              <div key={b.title} className="text-center rounded-2xl bg-white p-6 shadow-sm border border-[#E2E8F0]">
                 <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
                   <b.icon size={24} />
                 </div>
@@ -302,7 +302,7 @@ export default function Index() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="py-16 sm:py-24">
+      <section className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">Happy Customers</p>
@@ -310,7 +310,7 @@ export default function Index() {
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {TESTIMONIALS.map((t) => (
-              <Card key={t.name} className="border border-border/50 shadow-sm rounded-2xl">
+              <Card key={t.name} className="border border-[#E2E8F0] shadow-none rounded-2xl bg-white">
                 <CardContent className="p-5">
                   <div className="mb-3 flex gap-0.5 text-primary">
                     {[...Array(5)].map((_, i) => (
@@ -335,7 +335,7 @@ export default function Index() {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" className="bg-muted/30 py-16 sm:py-24">
+      <section id="pricing" className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">Pricing</p>
@@ -344,9 +344,9 @@ export default function Index() {
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-2 max-w-4xl mx-auto items-stretch">
             {PRICING.map((p) => (
-              <Card key={p.tier} className={`relative flex flex-col rounded-2xl border shadow-sm ${p.popular ? "ring-2 ring-primary shadow-lg border-2 border-primary" : "border-border/50"}`}>
+              <Card key={p.tier} className={`relative flex flex-col rounded-2xl bg-white shadow-sm ${p.popular ? "border-2 border-[#2D3FBF] shadow-md" : "border border-[#E2E8F0]"}`}>
                 {p.popular && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-bold text-primary-foreground">
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-[#2D3FBF] px-4 py-1 text-xs font-bold text-white">
                     ⭐ Most Popular
                   </div>
                 )}
@@ -374,7 +374,7 @@ export default function Index() {
           </div>
 
           {/* One-Time Setup Fee */}
-          <Card className="mt-8 rounded-2xl border border-border/50 bg-muted/60 shadow-sm">
+          <Card className="mt-8 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] shadow-none">
             <CardContent className="p-6 sm:p-8">
               <div className="grid gap-6 md:grid-cols-3 md:items-center">
                 <div className="md:col-span-1">
@@ -403,7 +403,7 @@ export default function Index() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="py-16 sm:py-24">
+      <section id="contact" className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-2">
             <div>
@@ -429,7 +429,7 @@ export default function Index() {
                 </div>
               </div>
             </div>
-            <Card className="border border-border/50 shadow-md rounded-2xl">
+            <Card className="border border-[#E2E8F0] shadow-sm rounded-2xl bg-white">
               <CardContent className="p-6">
                 <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
                   <div>
@@ -459,7 +459,7 @@ export default function Index() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t bg-muted/40">
+      <footer className="border-t border-[#E2E8F0] bg-[#F9FAFB] text-foreground">
         <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
           <div className="grid gap-8 md:grid-cols-3">
             <div>
