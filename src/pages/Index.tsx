@@ -34,6 +34,7 @@ import logoMark from "@/assets/logo-mark.png";
 import brandLogo from "@/assets/baker-sons-logo.png";
 import { PingPongVideo } from "@/components/PingPongVideo";
 import { HeroBackground } from "@/components/HeroBackground";
+import { NavBackground } from "@/components/NavBackground";
 
 const NAV_LINKS = [
   { label: "Services", href: "#services" },
