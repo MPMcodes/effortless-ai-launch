@@ -31,6 +31,7 @@ import {
   HandHeart,
 } from "lucide-react";
 import logoVideo from "@/assets/logo-animation.mp4";
+import brandLogo from "@/assets/baker-sons-logo.png";
 import { PingPongVideo } from "@/components/PingPongVideo";
 import { HeroBackground } from "@/components/HeroBackground";
 
