@@ -73,12 +73,12 @@ const PRICING = [
     tier: "Growth",
     price: "$349",
     features: [
-      "Customer-built website (up to 10 pages)",
-      "Mobile-optimized design",
-      "AI live chat with human handoff",
+      "AI Receptionist (up to 200 calls/month)",
+      "AI Support Agent (up to 500 conversations/month)",
+      "Mobile-optimized website (up to 10 pages)",
       "Lead capture + CRM sync",
-      "SEO optimization",
       "Custom domain + hosting",
+      "Co-branded (Baker & Sons AI powered)",
       "Priority email support",
     ],
     cta: "Choose Growth",
@@ -89,8 +89,9 @@ const PRICING = [
     price: "$499",
     features: [
       "Everything in Growth",
-      "Unlimited pages",
-      "Voice AI + SMS follow-up",
+      "Unlimited calls and conversations",
+      "Voice AI + SMS + WhatsApp + email support",
+      "Full white label (your brand, invisible to customers)",
       "Google Ads integration",
       "Monthly strategy call",
       "Priority support",
@@ -102,15 +103,16 @@ const PRICING = [
 
 const SETUP_FEE = {
   label: "One-Time Setup Fee",
-  price: "$1,500",
+  price: "$1,499",
   priceSuffix: "flat",
   subtitle: "Required with any subscription · paid once",
   includes: [
     "Brand discovery session",
+    "AI agent training on your business content",
     "Custom design direction",
-    "AI chatbot training on your content",
     "Domain + integrations setup",
     "Onboarding walkthrough",
+    "Go live in 48 hours",
   ],
 };
 
