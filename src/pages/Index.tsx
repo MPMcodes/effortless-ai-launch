@@ -141,15 +141,16 @@ export default function Index() {
       {/* NAV */}
       <nav className="sticky top-0 z-50 border-b border-[#E2E8F0] bg-white">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-          <a href="#" className="flex items-center gap-2.5">
+          <a href="#" className="flex items-center gap-3">
             <PingPongVideo
               src={logoVideo}
               className="h-11 w-11 rounded-md object-cover"
             />
-            <div>
-              <span className="text-lg font-bold tracking-tight">Baker & Sons</span>
-              <span className="block text-[11px] text-muted-foreground -mt-0.5 tracking-wide">AI Consulting · Tech for Small Business</span>
-            </div>
+            <img
+              src={brandLogo}
+              alt="Baker & Sons AI Consulting"
+              className="h-9 w-auto"
+            />
           </a>
           <div className="hidden items-center gap-7 md:flex">
             {NAV_LINKS.map((l) => (
