@@ -138,7 +138,7 @@ export default function Index() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground [&_section[id]]:scroll-mt-20">
       {/* NAV */}
       <nav className="sticky top-0 z-50 border-b border-[#E2E8F0] bg-white/80 backdrop-blur-md">
         <NavBackground />
@@ -188,30 +188,30 @@ export default function Index() {
       {/* HERO */}
       <section className="relative isolate overflow-hidden">
         <HeroBackground />
-        <div className="mx-auto flex max-w-6xl flex-col-reverse items-center gap-10 px-4 py-16 sm:px-6 lg:flex-row lg:gap-14 lg:px-8 lg:py-24">
+        <div className="mx-auto flex max-w-6xl flex-col-reverse items-center gap-8 px-4 py-12 sm:gap-10 sm:px-6 sm:py-16 lg:flex-row lg:gap-14 lg:px-8 lg:py-24">
           <div className="flex-1 text-center lg:text-left">
-            <div className="mb-4 inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+            <div className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-[11px] font-medium text-primary sm:text-xs">
               <Sparkles size={14} /> Built for businesses like yours
             </div>
-            <h1 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+            <h1 className="text-[28px] font-bold leading-[1.15] tracking-tight sm:text-4xl lg:text-5xl">
               Smart AI Tools for{" "}
               <span className="text-primary">Your</span> Small Business
             </h1>
-            <p className="mx-auto mt-5 max-w-lg text-base text-muted-foreground lg:mx-0 leading-relaxed">
+            <p className="mx-auto mt-4 max-w-lg text-[15px] text-muted-foreground sm:mt-5 sm:text-base lg:mx-0 leading-relaxed">
               We're the friendly tech team you always wished you had. We set up everything, explain it in plain English, and stick around to make sure it works.
             </p>
-            <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row lg:justify-start">
-              <Button size="lg" asChild className="gap-2 rounded-full px-7 text-base">
+            <div className="mt-6 flex flex-col items-stretch gap-2.5 sm:mt-7 sm:flex-row sm:items-center sm:justify-center sm:gap-3 lg:justify-start">
+              <Button size="lg" asChild className="w-full gap-2 rounded-full px-7 text-base sm:w-auto">
                 <a href="#contact">
                   Get Your Free Demo <ArrowRight size={18} />
                 </a>
               </Button>
-              <Button size="lg" variant="ghost" asChild className="gap-2 text-base text-muted-foreground">
+              <Button size="lg" variant="ghost" asChild className="w-full gap-2 text-base text-muted-foreground sm:w-auto">
                 <a href="#how-it-works">See How It Works ↓</a>
               </Button>
             </div>
           </div>
-          <div className="w-full lg:flex-1 relative overflow-hidden rounded-3xl shadow-xl shadow-primary/10 aspect-[7/5] lg:aspect-auto" style={{ minHeight: 340 }}>
+          <div className="w-full lg:flex-1 relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-xl shadow-primary/10 aspect-[4/3] sm:aspect-[7/5] lg:aspect-auto lg:min-h-[340px]">
             {HERO_IMAGES.map((img, i) => (
               <img
                 key={img.src}
@@ -223,12 +223,12 @@ export default function Index() {
                 height={500}
               />
             ))}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 sm:bottom-4">
               {HERO_IMAGES.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setHeroIdx(i)}
-                  className={`h-2.5 rounded-full transition-all ${i === heroIdx ? "w-7 bg-primary" : "w-2.5 bg-white/50"}`}
+                  className={`h-2.5 rounded-full transition-all ${i === heroIdx ? "w-7 bg-primary" : "w-2.5 bg-white/60"}`}
                   aria-label={`Show image ${i + 1}`}
                 />
               ))}
@@ -238,7 +238,7 @@ export default function Index() {
       </section>
 
       {/* SERVICES */}
-      <section id="services" className="bg-white py-16 sm:py-24">
+      <section id="services" className="bg-white py-14 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">What We Do</p>
@@ -262,7 +262,7 @@ export default function Index() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section id="how-it-works" className="bg-white py-16 sm:py-24">
+      <section id="how-it-works" className="bg-white py-14 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">Easy as 1-2-3</p>
@@ -283,7 +283,7 @@ export default function Index() {
       </section>
 
       {/* BENEFITS */}
-      <section className="bg-[#F1F5F9] py-16 sm:py-24">
+      <section className="bg-[#F1F5F9] py-14 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <div className="inline-flex items-center gap-1.5 mb-3 text-primary">
@@ -307,7 +307,7 @@ export default function Index() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="bg-white py-16 sm:py-24">
+      <section className="bg-white py-14 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">Happy Customers</p>
@@ -340,7 +340,7 @@ export default function Index() {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" className="bg-white py-16 sm:py-24">
+      <section id="pricing" className="bg-white py-14 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">Pricing</p>
@@ -408,7 +408,7 @@ export default function Index() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="bg-white py-16 sm:py-24">
+      <section id="contact" className="bg-white py-14 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-2">
             <div>
