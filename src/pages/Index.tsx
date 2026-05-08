@@ -335,7 +335,7 @@ export default function Index() {
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Honest Pricing. No Surprises.</h2>
             <p className="mt-3 text-muted-foreground text-sm">Cancel anytime. We earn your business every month.</p>
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-3 items-stretch">
+          <div className="mt-12 grid gap-6 md:grid-cols-2 max-w-4xl mx-auto items-stretch">
             {PRICING.map((p) => (
               <Card key={p.tier} className={`relative flex flex-col rounded-2xl border shadow-sm ${p.popular ? "ring-2 ring-primary shadow-lg border-2 border-primary" : "border-border/50"}`}>
                 {p.popular && (
