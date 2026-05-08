@@ -233,7 +233,7 @@ export default function Index() {
       </section>
 
       {/* SERVICES */}
-      <section id="services" className="bg-muted/30 py-16 sm:py-24">
+      <section id="services" className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">What We Do</p>
