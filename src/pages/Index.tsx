@@ -374,7 +374,7 @@ export default function Index() {
           </div>
 
           {/* One-Time Setup Fee */}
-          <Card className="mt-8 rounded-2xl border border-border/50 bg-muted/60 shadow-sm">
+          <Card className="mt-8 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] shadow-none">
             <CardContent className="p-6 sm:p-8">
               <div className="grid gap-6 md:grid-cols-3 md:items-center">
                 <div className="md:col-span-1">
