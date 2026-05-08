@@ -31,6 +31,7 @@ import {
   HandHeart,
 } from "lucide-react";
 import logoVideo from "@/assets/logo-animation.mp4";
+import { PingPongVideo } from "@/components/PingPongVideo";
 
 const NAV_LINKS = [
   { label: "Services", href: "#services" },
