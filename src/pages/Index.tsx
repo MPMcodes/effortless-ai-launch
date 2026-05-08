@@ -32,6 +32,7 @@ import {
 } from "lucide-react";
 import logoVideo from "@/assets/logo-animation.mp4";
 import { PingPongVideo } from "@/components/PingPongVideo";
+import { HeroBackground } from "@/components/HeroBackground";
 
 const NAV_LINKS = [
   { label: "Services", href: "#services" },
@@ -181,7 +182,7 @@ export default function Index() {
 
       {/* HERO */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
+        <HeroBackground />
         <div className="mx-auto flex max-w-6xl flex-col-reverse items-center gap-10 px-4 py-16 sm:px-6 lg:flex-row lg:gap-14 lg:px-8 lg:py-24">
           <div className="flex-1 text-center lg:text-left">
             <div className="mb-4 inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
