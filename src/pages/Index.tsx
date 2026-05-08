@@ -69,45 +69,33 @@ const TESTIMONIALS = [
 
 const PRICING = [
   {
-    tier: "Starter",
-    price: "$199",
-    features: [
-      "Customer-built website (up to 5 pages)",
-      "Mobile-optimized design",
-      "AI chat widget (FAQ-trained)",
-      "Custom domain + hosting",
-      "Monthly content refresh",
-      "Email support",
-    ],
-    cta: "Get Started",
-    popular: false,
-  },
-  {
     tier: "Growth",
     price: "$349",
     features: [
-      "Everything in Starter",
-      "Up to 10 pages",
+      "Customer-built website (up to 10 pages)",
+      "Mobile-optimized design",
       "AI live chat with human handoff",
       "Lead capture + CRM sync",
       "SEO optimization",
-      "Priority support",
+      "Custom domain + hosting",
+      "Priority email support",
     ],
     cta: "Choose Growth",
-    popular: true,
+    popular: false,
   },
   {
     tier: "Pro",
-    price: "$500",
+    price: "$499",
     features: [
       "Everything in Growth",
       "Unlimited pages",
       "Voice AI + SMS follow-up",
       "Google Ads integration",
       "Monthly strategy call",
+      "Priority support",
     ],
     cta: "Go Pro",
-    popular: false,
+    popular: true,
   },
 ];
 
