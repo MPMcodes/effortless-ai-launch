@@ -242,7 +242,7 @@ export default function Index() {
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((s) => (
-              <Card key={s.title} className="group border border-border/50 bg-background rounded-2xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-0.5 hover:border-primary/30">
+              <Card key={s.title} className="group border border-[#E2E8F0] bg-white rounded-2xl shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5">
                 <CardContent className="p-5">
                   <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                     <s.icon size={22} />
