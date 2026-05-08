@@ -429,7 +429,7 @@ export default function Index() {
                 </div>
               </div>
             </div>
-            <Card className="border border-border/50 shadow-md rounded-2xl">
+            <Card className="border border-[#E2E8F0] shadow-sm rounded-2xl bg-white">
               <CardContent className="p-6">
                 <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
                   <div>
