@@ -403,7 +403,7 @@ export default function Index() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="py-16 sm:py-24">
+      <section id="contact" className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-2">
             <div>
