@@ -209,15 +209,15 @@ export function HeroBackground() {
       <style>{`
         @keyframes heroBlobA {
           0%, 100% { transform: translate(0, 0) scale(1); }
-          50% { transform: translate(18%, 12%) scale(1.18); }
+          50% { transform: translate(28%, 22%) scale(1.3); }
         }
         @keyframes heroBlobB {
           0%, 100% { transform: translate(0, 0) scale(1); }
-          50% { transform: translate(-16%, 10%) scale(1.2); }
+          50% { transform: translate(-26%, 18%) scale(1.32); }
         }
         @keyframes heroBlobC {
           0%, 100% { transform: translate(0, 0) scale(1); }
-          50% { transform: translate(-12%, -16%) scale(1.14); }
+          50% { transform: translate(-22%, -26%) scale(1.28); }
         }
       `}</style>
     </div>
