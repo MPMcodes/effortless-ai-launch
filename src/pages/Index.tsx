@@ -278,7 +278,7 @@ export default function Index() {
       </section>
 
       {/* BENEFITS */}
-      <section className="bg-primary/5 py-16 sm:py-24 border-y border-primary/10">
+      <section className="bg-[#F1F5F9] py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <div className="inline-flex items-center gap-1.5 mb-3 text-primary">
