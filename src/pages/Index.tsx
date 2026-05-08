@@ -181,7 +181,7 @@ export default function Index() {
       </nav>
 
       {/* HERO */}
-      <section className="relative overflow-hidden">
+      <section className="relative isolate overflow-hidden">
         <HeroBackground />
         <div className="mx-auto flex max-w-6xl flex-col-reverse items-center gap-10 px-4 py-16 sm:px-6 lg:flex-row lg:gap-14 lg:px-8 lg:py-24">
           <div className="flex-1 text-center lg:text-left">
