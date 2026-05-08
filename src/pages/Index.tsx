@@ -30,7 +30,7 @@ import {
   Sparkles,
   HandHeart,
 } from "lucide-react";
-import logoVideo from "@/assets/logo-animation.mp4";
+import logoMark from "@/assets/logo-mark.png";
 import brandLogo from "@/assets/baker-sons-logo.png";
 import { PingPongVideo } from "@/components/PingPongVideo";
 import { HeroBackground } from "@/components/HeroBackground";
@@ -142,9 +142,10 @@ export default function Index() {
       <nav className="sticky top-0 z-50 border-b border-[#E2E8F0] bg-white">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
           <a href="#" className="flex items-center gap-3">
-            <PingPongVideo
-              src={logoVideo}
-              className="h-11 w-11 rounded-md object-cover"
+            <img
+              src={logoMark}
+              alt="Baker & Sons logo mark"
+              className="h-11 w-11 object-contain"
             />
             <img
               src={brandLogo}
