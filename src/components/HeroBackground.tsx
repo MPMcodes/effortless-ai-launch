@@ -174,7 +174,7 @@ export function HeroBackground() {
             left: "-18%",
             background: "#E0F2FE",
             opacity: 0.6,
-            animation: "heroBlobA 11s ease-in-out infinite",
+            animation: "heroBlobA 7s ease-in-out infinite",
           }}
         />
         <div
