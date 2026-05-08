@@ -34,6 +34,7 @@ import logoMark from "@/assets/logo-mark.png";
 import brandLogo from "@/assets/baker-sons-logo.png";
 import { PingPongVideo } from "@/components/PingPongVideo";
 import { HeroBackground } from "@/components/HeroBackground";
+import { NavBackground } from "@/components/NavBackground";
 
 const NAV_LINKS = [
   { label: "Services", href: "#services" },
@@ -139,8 +140,9 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* NAV */}
-      <nav className="sticky top-0 z-50 border-b border-[#E2E8F0] bg-white">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+      <nav className="sticky top-0 z-50 border-b border-[#E2E8F0] bg-white/80 backdrop-blur-md">
+        <NavBackground />
+        <div className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
           <a href="#" className="flex items-center gap-2 sm:gap-3">
             <img
               src={logoMark}
