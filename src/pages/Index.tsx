@@ -257,7 +257,7 @@ export default function Index() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section id="how-it-works" className="py-16 sm:py-24">
+      <section id="how-it-works" className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">Easy as 1-2-3</p>
