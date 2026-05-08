@@ -65,8 +65,10 @@ export function HeroBackground() {
 
     const LINK_DIST = 120;
     const MOUSE_RADIUS = 150;
+    let time = 0;
 
     const tick = () => {
+      time += 0.01;
       ctx.clearRect(0, 0, width, height);
 
       const m = mouseRef.current;
@@ -94,9 +96,9 @@ export function HeroBackground() {
           p.vy = (p.vy / sp) * maxSp;
         }
 
-        // tiny random jitter to keep alive
-        p.vx += (Math.random() - 0.5) * 0.01;
-        p.vy += (Math.random() - 0.5) * 0.01;
+        // soft wave motion keeps the network visibly alive without distraction
+        p.vx += Math.sin(time + p.y * 0.018) * 0.006 + (Math.random() - 0.5) * 0.012;
+        p.vy += Math.cos(time + p.x * 0.018) * 0.006 + (Math.random() - 0.5) * 0.012;
 
         p.x += p.vx;
         p.y += p.vy;
@@ -119,7 +121,7 @@ export function HeroBackground() {
           const d2 = dx * dx + dy * dy;
           if (d2 < LINK_DIST * LINK_DIST) {
             const d = Math.sqrt(d2);
-            const alpha = (1 - d / LINK_DIST) * 0.1;
+            const alpha = (1 - d / LINK_DIST) * 0.18;
             ctx.strokeStyle = `rgba(99, 102, 241, ${alpha})`;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
@@ -130,7 +132,7 @@ export function HeroBackground() {
       }
 
       // dots
-      ctx.fillStyle = "rgba(99, 102, 241, 0.3)";
+      ctx.fillStyle = "rgba(99, 102, 241, 0.5)";
       for (const p of particles) {
         ctx.beginPath();
         ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
@@ -161,10 +163,10 @@ export function HeroBackground() {
         <div
           className="absolute rounded-full blur-3xl"
           style={{
-            width: "55%",
-            height: "70%",
-            top: "-10%",
-            left: "-10%",
+            width: "70%",
+            height: "85%",
+            top: "-16%",
+            left: "-18%",
             background: "#E0F2FE",
             opacity: 0.6,
             animation: "heroBlobA 11s ease-in-out infinite",
@@ -173,10 +175,10 @@ export function HeroBackground() {
         <div
           className="absolute rounded-full blur-3xl"
           style={{
-            width: "60%",
-            height: "70%",
-            top: "10%",
-            right: "-15%",
+            width: "75%",
+            height: "85%",
+            top: "2%",
+            right: "-24%",
             background: "#EDE9FE",
             opacity: 0.5,
             animation: "heroBlobB 9s ease-in-out infinite",
@@ -185,10 +187,10 @@ export function HeroBackground() {
         <div
           className="absolute rounded-full blur-3xl"
           style={{
-            width: "65%",
-            height: "65%",
-            bottom: "-20%",
-            left: "20%",
+            width: "80%",
+            height: "76%",
+            bottom: "-24%",
+            left: "10%",
             background: "#E0E7FF",
             opacity: 0.4,
             animation: "heroBlobC 12s ease-in-out infinite",
