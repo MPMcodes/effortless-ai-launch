@@ -138,7 +138,7 @@ export default function Index() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground [&_section[id]]:scroll-mt-20">
       {/* NAV */}
       <nav className="sticky top-0 z-50 border-b border-[#E2E8F0] bg-white/80 backdrop-blur-md">
         <NavBackground />
