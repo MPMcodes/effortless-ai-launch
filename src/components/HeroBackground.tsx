@@ -42,6 +42,7 @@ export function HeroBackground() {
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
+      if (rect.width === 0 || rect.height === 0) return;
       width = rect.width;
       height = rect.height;
       dpr = window.devicePixelRatio || 1;
@@ -50,6 +51,9 @@ export function HeroBackground() {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       initParticles();
     };
+
+    const ro = new ResizeObserver(() => resize());
+    ro.observe(canvas);
 
     const onMove = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
@@ -150,6 +154,7 @@ export function HeroBackground() {
 
     return () => {
       cancelAnimationFrame(rafId);
+      ro.disconnect();
       window.removeEventListener("resize", resize);
       canvas.removeEventListener("mousemove", onMove);
       canvas.removeEventListener("mouseleave", onLeave);
@@ -169,7 +174,7 @@ export function HeroBackground() {
             left: "-18%",
             background: "#E0F2FE",
             opacity: 0.6,
-            animation: "heroBlobA 11s ease-in-out infinite",
+            animation: "heroBlobA 7s ease-in-out infinite",
           }}
         />
         <div
@@ -179,9 +184,9 @@ export function HeroBackground() {
             height: "85%",
             top: "2%",
             right: "-24%",
-            background: "#EDE9FE",
-            opacity: 0.5,
-            animation: "heroBlobB 9s ease-in-out infinite",
+            background: "#CFFAFE",
+            opacity: 0.6,
+            animation: "heroBlobB 6s ease-in-out infinite",
           }}
         />
         <div
@@ -191,9 +196,9 @@ export function HeroBackground() {
             height: "76%",
             bottom: "-24%",
             left: "10%",
-            background: "#E0E7FF",
-            opacity: 0.4,
-            animation: "heroBlobC 12s ease-in-out infinite",
+            background: "#A5F3FC",
+            opacity: 0.45,
+            animation: "heroBlobC 7s ease-in-out infinite",
           }}
         />
       </div>
@@ -204,15 +209,15 @@ export function HeroBackground() {
       <style>{`
         @keyframes heroBlobA {
           0%, 100% { transform: translate(0, 0) scale(1); }
-          50% { transform: translate(18%, 12%) scale(1.18); }
+          50% { transform: translate(28%, 22%) scale(1.3); }
         }
         @keyframes heroBlobB {
           0%, 100% { transform: translate(0, 0) scale(1); }
-          50% { transform: translate(-16%, 10%) scale(1.2); }
+          50% { transform: translate(-26%, 18%) scale(1.32); }
         }
         @keyframes heroBlobC {
           0%, 100% { transform: translate(0, 0) scale(1); }
-          50% { transform: translate(-12%, -16%) scale(1.14); }
+          50% { transform: translate(-22%, -26%) scale(1.28); }
         }
       `}</style>
     </div>
