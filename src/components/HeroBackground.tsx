@@ -184,9 +184,9 @@ export function HeroBackground() {
             height: "85%",
             top: "2%",
             right: "-24%",
-            background: "#EDE9FE",
-            opacity: 0.5,
-            animation: "heroBlobB 9s ease-in-out infinite",
+            background: "#CFFAFE",
+            opacity: 0.6,
+            animation: "heroBlobB 6s ease-in-out infinite",
           }}
         />
         <div
@@ -196,9 +196,9 @@ export function HeroBackground() {
             height: "76%",
             bottom: "-24%",
             left: "10%",
-            background: "#E0E7FF",
-            opacity: 0.4,
-            animation: "heroBlobC 12s ease-in-out infinite",
+            background: "#A5F3FC",
+            opacity: 0.45,
+            animation: "heroBlobC 7s ease-in-out infinite",
           }}
         />
       </div>
