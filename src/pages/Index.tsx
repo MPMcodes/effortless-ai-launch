@@ -310,7 +310,7 @@ export default function Index() {
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {TESTIMONIALS.map((t) => (
-              <Card key={t.name} className="border border-border/50 shadow-sm rounded-2xl">
+              <Card key={t.name} className="border border-[#E2E8F0] shadow-none rounded-2xl bg-white">
                 <CardContent className="p-5">
                   <div className="mb-3 flex gap-0.5 text-primary">
                     {[...Array(5)].map((_, i) => (
