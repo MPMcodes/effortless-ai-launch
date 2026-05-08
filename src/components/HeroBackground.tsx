@@ -154,6 +154,7 @@ export function HeroBackground() {
 
     return () => {
       cancelAnimationFrame(rafId);
+      ro.disconnect();
       window.removeEventListener("resize", resize);
       canvas.removeEventListener("mousemove", onMove);
       canvas.removeEventListener("mouseleave", onLeave);
