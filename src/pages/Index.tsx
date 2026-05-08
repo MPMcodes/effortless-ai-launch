@@ -31,6 +31,7 @@ import {
   HandHeart,
 } from "lucide-react";
 import logoVideo from "@/assets/logo-animation.mp4";
+import brickBg from "@/assets/brick-bg.jpg";
 import { PingPongVideo } from "@/components/PingPongVideo";
 
 const NAV_LINKS = [
@@ -135,7 +136,12 @@ export default function Index() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground relative">
+      <div
+        aria-hidden="true"
+        className="fixed inset-0 -z-10 bg-repeat opacity-10 pointer-events-none"
+        style={{ backgroundImage: `url(${brickBg})`, backgroundSize: "600px auto" }}
+      />
       {/* NAV */}
       <nav className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
