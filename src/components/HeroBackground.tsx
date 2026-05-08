@@ -42,6 +42,7 @@ export function HeroBackground() {
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
+      if (rect.width === 0 || rect.height === 0) return;
       width = rect.width;
       height = rect.height;
       dpr = window.devicePixelRatio || 1;
@@ -50,6 +51,9 @@ export function HeroBackground() {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       initParticles();
     };
+
+    const ro = new ResizeObserver(() => resize());
+    ro.observe(canvas);
 
     const onMove = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
