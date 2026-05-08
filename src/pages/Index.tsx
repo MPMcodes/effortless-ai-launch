@@ -467,7 +467,7 @@ export default function Index() {
           <div className="grid gap-8 md:grid-cols-3">
             <div>
               <img src={brandLogo} alt="Baker & Sons AI Consulting" className="h-10 w-auto" />
-              <p className="mt-3 text-sm text-muted-foreground">A dad and three sons on a mission to help small businesses thrive with simple, friendly tech.</p>
+              
             </div>
             <div>
               <h4 className="font-semibold mb-3 text-sm">Quick Links</h4>
