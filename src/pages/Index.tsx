@@ -289,7 +289,7 @@ export default function Index() {
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {BENEFITS.map((b) => (
-              <div key={b.title} className="text-center rounded-2xl bg-background p-6 shadow-sm border border-border/50">
+              <div key={b.title} className="text-center rounded-2xl bg-white p-6 shadow-sm border border-[#E2E8F0]">
                 <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
                   <b.icon size={24} />
                 </div>
