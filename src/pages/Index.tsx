@@ -30,6 +30,7 @@ import {
   Sparkles,
   HandHeart,
 } from "lucide-react";
+import logo from "@/assets/baker-sons-logo.jpg";
 
 const NAV_LINKS = [
   { label: "Services", href: "#services" },
@@ -148,10 +149,10 @@ export default function Index() {
       <nav className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
           <a href="#" className="flex items-center gap-2.5">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold text-lg">B</div>
+            <img src={logo} alt="Baker & Sons AI Consulting logo" className="h-11 w-11 rounded-md object-contain" />
             <div>
               <span className="text-lg font-bold tracking-tight">Baker & Sons</span>
-              <span className="block text-[11px] text-muted-foreground -mt-0.5 tracking-wide">Tech for Small Business</span>
+              <span className="block text-[11px] text-muted-foreground -mt-0.5 tracking-wide">AI Consulting · Tech for Small Business</span>
             </div>
           </a>
           <div className="hidden items-center gap-7 md:flex">
