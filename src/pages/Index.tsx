@@ -459,7 +459,7 @@ export default function Index() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t bg-muted/40">
+      <footer className="border-t border-[#E2E8F0] bg-[#F9FAFB] text-foreground">
         <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
           <div className="grid gap-8 md:grid-cols-3">
             <div>
