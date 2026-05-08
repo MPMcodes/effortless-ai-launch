@@ -465,10 +465,7 @@ export default function Index() {
         <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
           <div className="grid gap-8 md:grid-cols-3">
             <div>
-              <div className="flex items-center gap-2.5">
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold">B</div>
-                <span className="text-lg font-bold">Baker & Sons</span>
-              </div>
+              <img src={brandLogo} alt="Baker & Sons AI Consulting" className="h-10 w-auto" />
               <p className="mt-3 text-sm text-muted-foreground">A dad and three sons on a mission to help small businesses thrive with simple, friendly tech.</p>
             </div>
             <div>
