@@ -344,9 +344,9 @@ export default function Index() {
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-2 max-w-4xl mx-auto items-stretch">
             {PRICING.map((p) => (
-              <Card key={p.tier} className={`relative flex flex-col rounded-2xl border shadow-sm ${p.popular ? "ring-2 ring-primary shadow-lg border-2 border-primary" : "border-border/50"}`}>
+              <Card key={p.tier} className={`relative flex flex-col rounded-2xl bg-white shadow-sm ${p.popular ? "border-2 border-[#2D3FBF] shadow-md" : "border border-[#E2E8F0]"}`}>
                 {p.popular && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-bold text-primary-foreground">
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-[#2D3FBF] px-4 py-1 text-xs font-bold text-white">
                     ⭐ Most Popular
                   </div>
                 )}
