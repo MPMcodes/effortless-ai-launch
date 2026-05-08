@@ -69,45 +69,33 @@ const TESTIMONIALS = [
 
 const PRICING = [
   {
-    tier: "Starter",
-    price: "$199",
-    features: [
-      "Customer-built website (up to 5 pages)",
-      "Mobile-optimized design",
-      "AI chat widget (FAQ-trained)",
-      "Custom domain + hosting",
-      "Monthly content refresh",
-      "Email support",
-    ],
-    cta: "Get Started",
-    popular: false,
-  },
-  {
     tier: "Growth",
     price: "$349",
     features: [
-      "Everything in Starter",
-      "Up to 10 pages",
+      "Customer-built website (up to 10 pages)",
+      "Mobile-optimized design",
       "AI live chat with human handoff",
       "Lead capture + CRM sync",
       "SEO optimization",
-      "Priority support",
+      "Custom domain + hosting",
+      "Priority email support",
     ],
     cta: "Choose Growth",
-    popular: true,
+    popular: false,
   },
   {
     tier: "Pro",
-    price: "$500",
+    price: "$499",
     features: [
       "Everything in Growth",
       "Unlimited pages",
       "Voice AI + SMS follow-up",
       "Google Ads integration",
       "Monthly strategy call",
+      "Priority support",
     ],
     cta: "Go Pro",
-    popular: false,
+    popular: true,
   },
 ];
 
@@ -347,7 +335,7 @@ export default function Index() {
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Honest Pricing. No Surprises.</h2>
             <p className="mt-3 text-muted-foreground text-sm">Cancel anytime. We earn your business every month.</p>
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-3 items-stretch">
+          <div className="mt-12 grid gap-6 md:grid-cols-2 max-w-4xl mx-auto items-stretch">
             {PRICING.map((p) => (
               <Card key={p.tier} className={`relative flex flex-col rounded-2xl border shadow-sm ${p.popular ? "ring-2 ring-primary shadow-lg border-2 border-primary" : "border-border/50"}`}>
                 {p.popular && (
