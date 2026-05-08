@@ -136,14 +136,14 @@ export default function Index() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground relative">
+    <div className="min-h-screen text-foreground relative">
       <div
         aria-hidden="true"
         className="fixed inset-0 -z-10 bg-repeat opacity-10 pointer-events-none"
         style={{ backgroundImage: `url(${brickBg})`, backgroundSize: "600px auto" }}
       />
       {/* NAV */}
-      <nav className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <nav className="sticky top-0 z-50 border-b bg-background/40 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
           <a href="#" className="flex items-center gap-2.5">
             <PingPongVideo
@@ -238,7 +238,7 @@ export default function Index() {
       </section>
 
       {/* SERVICES */}
-      <section id="services" className="bg-muted/30 py-16 sm:py-24">
+      <section id="services" className="py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">What We Do</p>
@@ -247,7 +247,7 @@ export default function Index() {
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((s) => (
-              <Card key={s.title} className="group border border-border/50 bg-background rounded-2xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-0.5 hover:border-primary/30">
+              <Card key={s.title} className="group border border-border/50 bg-background/70 backdrop-blur-sm rounded-2xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-0.5 hover:border-primary/30">
                 <CardContent className="p-5">
                   <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                     <s.icon size={22} />
@@ -294,7 +294,7 @@ export default function Index() {
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {BENEFITS.map((b) => (
-              <div key={b.title} className="text-center rounded-2xl bg-background p-6 shadow-sm border border-border/50">
+              <div key={b.title} className="text-center rounded-2xl bg-background/70 backdrop-blur-sm p-6 shadow-sm border border-border/50">
                 <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
                   <b.icon size={24} />
                 </div>
@@ -340,7 +340,7 @@ export default function Index() {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" className="bg-muted/30 py-16 sm:py-24">
+      <section id="pricing" className="py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">Pricing</p>
@@ -379,7 +379,7 @@ export default function Index() {
           </div>
 
           {/* One-Time Setup Fee */}
-          <Card className="mt-8 rounded-2xl border border-border/50 bg-muted/60 shadow-sm">
+          <Card className="mt-8 rounded-2xl border border-border/50 bg-background/60 backdrop-blur-sm shadow-sm">
             <CardContent className="p-6 sm:p-8">
               <div className="grid gap-6 md:grid-cols-3 md:items-center">
                 <div className="md:col-span-1">
@@ -464,7 +464,7 @@ export default function Index() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t bg-muted/40">
+      <footer className="border-t bg-background/60 backdrop-blur">
         <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
           <div className="grid gap-8 md:grid-cols-3">
             <div>
