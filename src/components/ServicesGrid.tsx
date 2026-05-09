@@ -38,7 +38,7 @@ export function ServicesGrid({ services }: ServicesGridProps) {
                 <span className="text-base font-semibold">{s.title}</span>
               </span>
             </AccordionTrigger>
-            <AccordionContent className="pb-4 pl-13">
+            <AccordionContent className="pb-4">
               <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
               {s.examples && (
                 <ul className="mt-3 space-y-1.5">
