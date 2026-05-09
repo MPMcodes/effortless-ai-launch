@@ -167,7 +167,7 @@ export default function Index() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground [&_section[id]]:scroll-mt-20">
+    <div className="min-h-screen bg-background text-foreground pb-20 md:pb-0 [&_section[id]]:scroll-mt-20">
       {/* NAV */}
       <nav className="sticky top-0 z-50 border-b border-[#E2E8F0] bg-white/80 backdrop-blur-md">
         <NavBackground />
@@ -186,7 +186,7 @@ export default function Index() {
           </a>
           <div className="hidden items-center gap-7 md:flex">
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+              <a key={l.href} href={l.href} className="inline-flex min-h-11 items-center text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
                 {l.label}
               </a>
             ))}
@@ -194,24 +194,42 @@ export default function Index() {
               <a href="#contact">Let's Talk</a>
             </Button>
           </div>
-          <button className="md:hidden" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu">
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <Sheet>
+            <SheetTrigger asChild>
+              <button
+                className="inline-flex min-h-11 min-w-11 items-center justify-center md:hidden"
+                aria-label="Open menu"
+              >
+                <Menu size={24} />
+              </button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[85vw] max-w-sm p-0">
+              <div className="flex items-center gap-3 border-b border-[#E2E8F0] px-5 py-4">
+                <img src={logoMark} alt="" className="h-9 w-9 object-contain" />
+                <span className="text-base font-semibold">Baker & Sons</span>
+              </div>
+              <nav className="flex flex-col px-3 py-4">
+                {NAV_LINKS.map((l) => (
+                  <SheetClose asChild key={l.href}>
+                    <a
+                      href={l.href}
+                      className="flex min-h-12 items-center rounded-lg px-3 text-base font-medium text-muted-foreground hover:bg-primary/10 hover:text-primary"
+                    >
+                      {l.label}
+                    </a>
+                  </SheetClose>
+                ))}
+              </nav>
+              <div className="px-5 pb-6 pt-2">
+                <SheetClose asChild>
+                  <Button asChild className="min-h-12 w-full rounded-full text-base">
+                    <a href="#contact">Let's Talk</a>
+                  </Button>
+                </SheetClose>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
-        {mobileOpen && (
-          <div className="border-t md:hidden">
-            <div className="flex flex-col gap-1 px-4 py-3">
-              {NAV_LINKS.map((l) => (
-                <a key={l.href} href={l.href} onClick={() => setMobileOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-primary/10 hover:text-primary">
-                  {l.label}
-                </a>
-              ))}
-              <Button asChild className="mt-2 rounded-full">
-                <a href="#contact" onClick={() => setMobileOpen(false)}>Let's Talk</a>
-              </Button>
-            </div>
-          </div>
-        )}
       </nav>
 
       {/* HERO */}
@@ -227,7 +245,7 @@ export default function Index() {
               <span className="text-primary">Your</span> Small Business
             </h1>
             <p className="mx-auto mt-4 max-w-lg text-[15px] text-muted-foreground sm:mt-5 sm:text-base lg:mx-0 leading-relaxed">
-              We're the friendly tech team you always wished you had. We set up everything, explain it in plain English, and stick around to make sure it works.
+              The friendly tech team you always wished you had. We handle the setup so you can focus on your business.
             </p>
             <div className="mt-6 flex flex-col items-stretch gap-2.5 sm:mt-7 sm:flex-row sm:items-center sm:justify-center sm:gap-3 lg:justify-start">
               <Button size="lg" asChild className="w-full gap-2 rounded-full px-7 text-base sm:w-auto">
@@ -243,28 +261,37 @@ export default function Index() {
           <div className="w-full lg:flex-1 relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-xl shadow-primary/10 aspect-[4/3] sm:aspect-[7/5] lg:aspect-auto lg:min-h-[340px]">
             {HERO_IMAGES.map((img, i) => (
               <img
-                key={img.src}
-                src={img.src}
+                key={img.id}
+                src={heroSrc(img.id, 1024)}
+                srcSet={heroSrcSet(img.id)}
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 alt={img.alt}
                 className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${i === heroIdx ? "opacity-100" : "opacity-0"}`}
                 loading={i === 0 ? "eager" : "lazy"}
-                width={700}
-                height={500}
+                decoding={i === 0 ? "sync" : "async"}
+                fetchPriority={i === 0 ? "high" : "low"}
+                width={1024}
+                height={730}
               />
             ))}
-            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 sm:bottom-4">
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1 sm:bottom-4">
               {HERO_IMAGES.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setHeroIdx(i)}
-                  className={`h-2.5 rounded-full transition-all ${i === heroIdx ? "w-7 bg-primary" : "w-2.5 bg-white/60"}`}
+                  className="inline-flex min-h-11 min-w-11 items-center justify-center"
                   aria-label={`Show image ${i + 1}`}
-                />
+                >
+                  <span
+                    className={`h-2.5 rounded-full transition-all ${i === heroIdx ? "w-7 bg-primary" : "w-2.5 bg-white/60"}`}
+                  />
+                </button>
               ))}
             </div>
           </div>
         </div>
       </section>
+      <div id="hero-sentinel" aria-hidden="true" />
 
       {/* SERVICES */}
       <section id="services" className="bg-white py-14 sm:py-24">
