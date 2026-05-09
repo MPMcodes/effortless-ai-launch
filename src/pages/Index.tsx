@@ -467,29 +467,7 @@ export default function Index() {
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">Happy Customers</p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Don't Take Our Word For It</h2>
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {TESTIMONIALS.map((t) => (
-              <Card key={t.name} className="border border-[#E2E8F0] shadow-none rounded-2xl bg-white">
-                <CardContent className="p-5">
-                  <div className="mb-3 flex gap-0.5 text-primary">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={15} fill="currentColor" />
-                    ))}
-                  </div>
-                  <p className="text-sm leading-relaxed text-muted-foreground">"{t.quote}"</p>
-                  <div className="mt-5 flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary font-bold text-xs">
-                      {t.name.split(" ").map((n) => n[0]).join("")}
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold">{t.name}</p>
-                      <p className="text-xs text-muted-foreground">{t.role}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <TestimonialsCarousel items={TESTIMONIALS} />
         </div>
       </section>
 
