@@ -1,11 +1,16 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
+import {
   Menu,
-  X,
   Users,
   MessageSquare,
   CalendarCheck,
@@ -35,6 +40,7 @@ import brandLogo from "@/assets/baker-sons-logo.png";
 import { PingPongVideo } from "@/components/PingPongVideo";
 import { HeroBackground } from "@/components/HeroBackground";
 import { NavBackground } from "@/components/NavBackground";
+import { StickyMobileCTA } from "@/components/StickyMobileCTA";
 
 const NAV_LINKS = [
   { label: "Services", href: "#services" },
