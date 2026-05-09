@@ -448,18 +448,29 @@ export default function Index() {
             <p className="mt-3 text-muted-foreground text-sm">We treat every business like it's our own.</p>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {BENEFITS.map((b) => (
-              <div key={b.title} className="text-center rounded-2xl bg-white p-6 shadow-sm border border-[#E2E8F0]">
-                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                  <b.icon size={24} />
+            {BENEFITS.map((b, i) => {
+              const tints = [
+                "from-primary/15 to-accent-violet/15 text-primary",
+                "from-accent-violet/15 to-accent-pink/15 text-accent-violet",
+                "from-accent-orange/20 to-accent-pink/15 text-accent-orange",
+                "from-accent-cyan/20 to-primary/15 text-accent-cyan",
+              ];
+              return (
+                <div
+                  key={b.title}
+                  className="group rounded-2xl border border-white/60 bg-white/80 p-6 text-center shadow-sm backdrop-blur transition-all hover:-translate-y-1 hover:shadow-glow"
+                >
+                  <div className={`mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${tints[i % tints.length]} transition-transform group-hover:scale-110`}>
+                    <b.icon size={24} />
+                  </div>
+                  <h3 className="inline-flex items-center justify-center gap-1 text-base font-bold">
+                    {b.title}
+                    <FeatureInfo content={b.info} label={b.title} side="bottom" />
+                  </h3>
+                  <p className="mt-1.5 text-sm text-muted-foreground">{b.desc}</p>
                 </div>
-                <h3 className="inline-flex items-center justify-center gap-1 text-base font-bold">
-                  {b.title}
-                  <FeatureInfo content={b.info} label={b.title} side="bottom" />
-                </h3>
-                <p className="mt-1.5 text-sm text-muted-foreground">{b.desc}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
