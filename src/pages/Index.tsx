@@ -473,7 +473,7 @@ export default function Index() {
               </div>
               <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Let's Get Your Business Growing</h2>
               <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
-                No pressure, no sales pitch. Just a friendly conversation about what's possible for your business. We're real people — not a call center.
+                No pressure, no sales pitch — just a quick chat about what's possible for your business. Real people, every time.
               </p>
               <div className="mt-6 space-y-3">
                 <div className="flex items-center gap-3 text-sm">
