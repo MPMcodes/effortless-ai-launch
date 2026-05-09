@@ -51,7 +51,11 @@ export function PricingCard({ p, featureInfo }: Props) {
         </ul>
         <Button
           asChild
-          className="mt-6 min-h-12 w-full rounded-full"
+          className={`mt-6 min-h-12 w-full rounded-full ${
+            p.popular
+              ? "bg-gradient-primary bg-[length:200%_auto] shadow-glow transition-all hover:bg-right hover:shadow-glow-warm"
+              : ""
+          }`}
           variant={p.popular ? "default" : "outline"}
         >
           <a href="#contact">{p.cta}</a>
