@@ -42,6 +42,11 @@ import { PingPongVideo } from "@/components/PingPongVideo";
 import { HeroBackground } from "@/components/HeroBackground";
 import { NavBackground } from "@/components/NavBackground";
 import { StickyMobileCTA } from "@/components/StickyMobileCTA";
+import { ServicesGrid } from "@/components/ServicesGrid";
+import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
+import { HowItWorksStepper } from "@/components/HowItWorksStepper";
+import { PricingCard } from "@/components/PricingCard";
+import { FeatureInfo } from "@/components/FeatureInfo";
 
 const NAV_LINKS = [
   { label: "Services", href: "#services" },
