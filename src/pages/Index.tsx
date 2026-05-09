@@ -199,6 +199,43 @@ const SETUP_FEE = {
   ],
 };
 
+type GrowthFeature = (typeof PRICING)[0]["features"][number];
+type ProFeature = (typeof PRICING)[1]["features"][number];
+
+const PRICING_FEATURE_INFO: {
+  Growth: Record<GrowthFeature, string>;
+  Pro: Record<ProFeature, string>;
+} = {
+  Growth: {
+    "AI Receptionist (up to 200 calls/month)":
+      "Answers inbound calls 24/7, takes messages, and books appointments. Overflow calls beyond 200/mo are billed at $0.30 each.",
+    "AI Support Agent (up to 500 conversations/month)":
+      "Handles website chat and SMS support. Counts only resolved conversations, not single messages back and forth.",
+    "Mobile-optimized website (up to 10 pages)":
+      "Includes home, services, about, and contact, plus 6 more pages of your choice. Additional pages are $99 each.",
+    "Lead capture + CRM sync":
+      "Form and chat leads land in your CRM automatically with source attribution so you know what's working.",
+    "Custom domain + hosting":
+      "We register and host your domain (yourbusiness.com). SSL certificate included.",
+    "Co-branded (Baker & Sons AI powered)":
+      'A small "Powered by Baker & Sons AI" tag in the footer. Upgrade to Pro for full white label.',
+    "Priority email support": "24-hour response time on weekdays.",
+  },
+  Pro: {
+    "Everything in Growth": "Every Growth feature included as the baseline.",
+    "Unlimited calls and conversations":
+      "No usage caps on the AI receptionist or support agent.",
+    "Voice AI + SMS + WhatsApp + email support":
+      "The same AI persona answers across every channel your customers reach you on.",
+    "Full white label (your brand, invisible to customers)":
+      "Zero Baker & Sons branding visible to your customers anywhere.",
+    "Google Ads integration":
+      "We connect Google Ads conversion tracking and provide a monthly performance report.",
+    "Monthly strategy call": "30-minute call to review your numbers and tune campaigns.",
+    "Priority support": "Same-day response on weekdays, plus an urgent line for outages.",
+  },
+};
+
 const HERO_IMAGES = [
   { id: "photo-1556761175-5973dc0f32e7", alt: "IT team collaborating in modern office" },
   { id: "photo-1553877522-43269d4ea984", alt: "Small business owner using laptop" },
