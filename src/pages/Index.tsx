@@ -1,11 +1,16 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
+import {
   Menu,
-  X,
   Users,
   MessageSquare,
   CalendarCheck,
@@ -35,6 +40,7 @@ import brandLogo from "@/assets/baker-sons-logo.png";
 import { PingPongVideo } from "@/components/PingPongVideo";
 import { HeroBackground } from "@/components/HeroBackground";
 import { NavBackground } from "@/components/NavBackground";
+import { StickyMobileCTA } from "@/components/StickyMobileCTA";
 
 const NAV_LINKS = [
   { label: "Services", href: "#services" },
@@ -54,7 +60,7 @@ const SERVICES = [
 
 const STEPS = [
   { num: "1", icon: PhoneCall, title: "Let's Chat", desc: "We'll grab a coffee (virtually!) and learn about your business. No sales pitch, promise." },
-  { num: "2", icon: Settings, title: "We Build It For You", desc: "Our team sets everything up while you keep doing what you love. Zero homework." },
+  { num: "2", icon: Settings, title: "We Build It For You", desc: "We build it, integrate it, and train it on your business. Zero homework." },
   { num: "3", icon: TrendingUp, title: "Watch It Grow", desc: "More customers, more reviews, less stress. That's the Baker & Sons way." },
 ];
 
@@ -120,25 +126,48 @@ const SETUP_FEE = {
 };
 
 const HERO_IMAGES = [
-  { src: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=700&h=500&fit=crop", alt: "IT team collaborating in modern office" },
-  { src: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=700&h=500&fit=crop", alt: "Small business owner using laptop" },
-  { src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&h=500&fit=crop", alt: "Team working on IT solutions together" },
-  { src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&h=500&fit=crop", alt: "Business professionals discussing technology" },
+  { id: "photo-1556761175-5973dc0f32e7", alt: "IT team collaborating in modern office" },
+  { id: "photo-1553877522-43269d4ea984", alt: "Small business owner using laptop" },
+  { id: "photo-1522071820081-009f0129c71c", alt: "Team working on IT solutions together" },
 ];
 
+const heroWidths = [640, 1024, 1600];
+const heroSrc = (id: string, w: number) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&q=70&w=${w}`;
+const heroSrcSet = (id: string) =>
+  heroWidths.map((w) => `${heroSrc(id, w)} ${w}w`).join(", ");
+
 export default function Index() {
-  const [mobileOpen, setMobileOpen] = useState(false);
   const [heroIdx, setHeroIdx] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setHeroIdx((prev) => (prev + 1) % HERO_IMAGES.length);
-    }, 4000);
-    return () => clearInterval(timer);
+    if (typeof window === "undefined") return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+    let timer: ReturnType<typeof setInterval> | null = null;
+    const start = () => {
+      if (timer) return;
+      timer = setInterval(() => {
+        setHeroIdx((prev) => (prev + 1) % HERO_IMAGES.length);
+      }, 4000);
+    };
+    const stop = () => {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    };
+    const onVis = () => (document.hidden ? stop() : start());
+    start();
+    document.addEventListener("visibilitychange", onVis);
+    return () => {
+      stop();
+      document.removeEventListener("visibilitychange", onVis);
+    };
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground [&_section[id]]:scroll-mt-20">
+    <div className="min-h-screen bg-background text-foreground pb-20 md:pb-0 [&_section[id]]:scroll-mt-20">
       {/* NAV */}
       <nav className="sticky top-0 z-50 border-b border-[#E2E8F0] bg-white/80 backdrop-blur-md">
         <NavBackground />
@@ -157,7 +186,7 @@ export default function Index() {
           </a>
           <div className="hidden items-center gap-7 md:flex">
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+              <a key={l.href} href={l.href} className="inline-flex min-h-11 items-center text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
                 {l.label}
               </a>
             ))}
@@ -165,24 +194,42 @@ export default function Index() {
               <a href="#contact">Let's Talk</a>
             </Button>
           </div>
-          <button className="md:hidden" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu">
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <Sheet>
+            <SheetTrigger asChild>
+              <button
+                className="inline-flex min-h-11 min-w-11 items-center justify-center md:hidden"
+                aria-label="Open menu"
+              >
+                <Menu size={24} />
+              </button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[85vw] max-w-sm p-0">
+              <div className="flex items-center gap-3 border-b border-[#E2E8F0] px-5 py-4">
+                <img src={logoMark} alt="" className="h-9 w-9 object-contain" />
+                <span className="text-base font-semibold">Baker & Sons</span>
+              </div>
+              <nav className="flex flex-col px-3 py-4">
+                {NAV_LINKS.map((l) => (
+                  <SheetClose asChild key={l.href}>
+                    <a
+                      href={l.href}
+                      className="flex min-h-12 items-center rounded-lg px-3 text-base font-medium text-muted-foreground hover:bg-primary/10 hover:text-primary"
+                    >
+                      {l.label}
+                    </a>
+                  </SheetClose>
+                ))}
+              </nav>
+              <div className="px-5 pb-6 pt-2">
+                <SheetClose asChild>
+                  <Button asChild className="min-h-12 w-full rounded-full text-base">
+                    <a href="#contact">Let's Talk</a>
+                  </Button>
+                </SheetClose>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
-        {mobileOpen && (
-          <div className="border-t md:hidden">
-            <div className="flex flex-col gap-1 px-4 py-3">
-              {NAV_LINKS.map((l) => (
-                <a key={l.href} href={l.href} onClick={() => setMobileOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-primary/10 hover:text-primary">
-                  {l.label}
-                </a>
-              ))}
-              <Button asChild className="mt-2 rounded-full">
-                <a href="#contact" onClick={() => setMobileOpen(false)}>Let's Talk</a>
-              </Button>
-            </div>
-          </div>
-        )}
       </nav>
 
       {/* HERO */}
@@ -198,7 +245,7 @@ export default function Index() {
               <span className="text-primary">Your</span> Small Business
             </h1>
             <p className="mx-auto mt-4 max-w-lg text-[15px] text-muted-foreground sm:mt-5 sm:text-base lg:mx-0 leading-relaxed">
-              We're the friendly tech team you always wished you had. We set up everything, explain it in plain English, and stick around to make sure it works.
+              The friendly tech team you always wished you had. We handle the setup so you can focus on your business.
             </p>
             <div className="mt-6 flex flex-col items-stretch gap-2.5 sm:mt-7 sm:flex-row sm:items-center sm:justify-center sm:gap-3 lg:justify-start">
               <Button size="lg" asChild className="w-full gap-2 rounded-full px-7 text-base sm:w-auto">
@@ -214,36 +261,45 @@ export default function Index() {
           <div className="w-full lg:flex-1 relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-xl shadow-primary/10 aspect-[4/3] sm:aspect-[7/5] lg:aspect-auto lg:min-h-[340px]">
             {HERO_IMAGES.map((img, i) => (
               <img
-                key={img.src}
-                src={img.src}
+                key={img.id}
+                src={heroSrc(img.id, 1024)}
+                srcSet={heroSrcSet(img.id)}
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 alt={img.alt}
                 className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${i === heroIdx ? "opacity-100" : "opacity-0"}`}
                 loading={i === 0 ? "eager" : "lazy"}
-                width={700}
-                height={500}
+                decoding={i === 0 ? "sync" : "async"}
+                fetchPriority={i === 0 ? "high" : "low"}
+                width={1024}
+                height={730}
               />
             ))}
-            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 sm:bottom-4">
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1 sm:bottom-4">
               {HERO_IMAGES.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setHeroIdx(i)}
-                  className={`h-2.5 rounded-full transition-all ${i === heroIdx ? "w-7 bg-primary" : "w-2.5 bg-white/60"}`}
+                  className="inline-flex min-h-11 min-w-11 items-center justify-center"
                   aria-label={`Show image ${i + 1}`}
-                />
+                >
+                  <span
+                    className={`h-2.5 rounded-full transition-all ${i === heroIdx ? "w-7 bg-primary" : "w-2.5 bg-white/60"}`}
+                  />
+                </button>
               ))}
             </div>
           </div>
         </div>
       </section>
+      <div id="hero-sentinel" aria-hidden="true" />
 
       {/* SERVICES */}
-      <section id="services" className="bg-white py-14 sm:py-24">
+      <section id="services" className="bg-white py-10 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">What We Do</p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Tools That Actually Make Your Life Easier</h2>
-            <p className="mt-3 text-muted-foreground text-sm">No fluff, no complicated setup. Just stuff that works.</p>
+            <p className="mt-3 text-muted-foreground text-sm">Tap any tool to see how it works for your business.</p>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((s) => (
@@ -262,7 +318,7 @@ export default function Index() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section id="how-it-works" className="bg-white py-14 sm:py-24">
+      <section id="how-it-works" className="bg-white py-10 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">Easy as 1-2-3</p>
@@ -283,7 +339,7 @@ export default function Index() {
       </section>
 
       {/* BENEFITS */}
-      <section className="bg-[#F1F5F9] py-14 sm:py-24">
+      <section className="bg-[#F1F5F9] py-10 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <div className="inline-flex items-center gap-1.5 mb-3 text-primary">
@@ -307,7 +363,7 @@ export default function Index() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="bg-white py-14 sm:py-24">
+      <section className="bg-white py-10 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">Happy Customers</p>
@@ -340,7 +396,7 @@ export default function Index() {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" className="bg-white py-14 sm:py-24">
+      <section id="pricing" className="bg-white py-10 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">Pricing</p>
@@ -408,7 +464,7 @@ export default function Index() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="bg-white py-14 sm:py-24">
+      <section id="contact" className="bg-white py-10 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-2">
             <div>
@@ -417,7 +473,7 @@ export default function Index() {
               </div>
               <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Let's Get Your Business Growing</h2>
               <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
-                No pressure, no sales pitch. Just a friendly conversation about what's possible for your business. We're real people — not a call center.
+                No pressure, no sales pitch — just a quick chat about what's possible for your business. Real people, every time.
               </p>
               <div className="mt-6 space-y-3">
                 <div className="flex items-center gap-3 text-sm">
@@ -439,19 +495,19 @@ export default function Index() {
                 <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
                   <div>
                     <label htmlFor="name" className="mb-1 block text-sm font-medium">Your Name</label>
-                    <Input id="name" placeholder="John Smith" className="rounded-xl" />
+                    <Input id="name" placeholder="John Smith" className="h-12 rounded-xl text-base" />
                   </div>
                   <div>
                     <label htmlFor="email" className="mb-1 block text-sm font-medium">Email</label>
-                    <Input id="email" type="email" placeholder="john@mybusiness.com" className="rounded-xl" />
+                    <Input id="email" type="email" placeholder="john@mybusiness.com" className="h-12 rounded-xl text-base" />
                   </div>
                   <div>
                     <label htmlFor="phone" className="mb-1 block text-sm font-medium">Phone</label>
-                    <Input id="phone" type="tel" placeholder="(555) 000-0000" className="rounded-xl" />
+                    <Input id="phone" type="tel" placeholder="(555) 000-0000" className="h-12 rounded-xl text-base" />
                   </div>
                   <div>
                     <label htmlFor="message" className="mb-1 block text-sm font-medium">Tell us about your business</label>
-                    <Textarea id="message" placeholder="What kind of business do you run? What's your biggest headache right now?" rows={3} className="rounded-xl" />
+                    <Textarea id="message" placeholder="What kind of business do you run? What's your biggest headache right now?" rows={3} className="min-h-[120px] rounded-xl text-base" />
                   </div>
                   <Button type="submit" className="w-full gap-2 rounded-full" size="lg">
                     Book a Friendly Chat <ArrowRight size={18} />
@@ -475,7 +531,7 @@ export default function Index() {
               <h4 className="font-semibold mb-3 text-sm">Quick Links</h4>
               <div className="flex flex-col gap-1.5">
                 {NAV_LINKS.map((l) => (
-                  <a key={l.href} href={l.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">{l.label}</a>
+                  <a key={l.href} href={l.href} className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-primary transition-colors">{l.label}</a>
                 ))}
               </div>
             </div>
@@ -483,8 +539,8 @@ export default function Index() {
               <h4 className="font-semibold mb-3 text-sm">Follow Along</h4>
               <div className="flex gap-2.5">
                 {[Facebook, Instagram].map((Icon, i) => (
-                  <a key={i} href="#" className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
-                    <Icon size={16} />
+                  <a key={i} href="#" className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
+                    <Icon size={18} />
                   </a>
                 ))}
               </div>
@@ -495,6 +551,7 @@ export default function Index() {
           </div>
         </div>
       </footer>
+      <StickyMobileCTA phoneHref="tel:+15551234567" />
     </div>
   );
 }
