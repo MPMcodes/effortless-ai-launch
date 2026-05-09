@@ -9,6 +9,7 @@ import {
   SheetTrigger,
   SheetClose,
 } from "@/components/ui/sheet";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Menu,
   Users,
@@ -41,6 +42,11 @@ import { PingPongVideo } from "@/components/PingPongVideo";
 import { HeroBackground } from "@/components/HeroBackground";
 import { NavBackground } from "@/components/NavBackground";
 import { StickyMobileCTA } from "@/components/StickyMobileCTA";
+import { ServicesGrid } from "@/components/ServicesGrid";
+import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
+import { HowItWorksStepper } from "@/components/HowItWorksStepper";
+import { PricingCard } from "@/components/PricingCard";
+import { FeatureInfo } from "@/components/FeatureInfo";
 
 const NAV_LINKS = [
   { label: "Services", href: "#services" },
@@ -50,12 +56,66 @@ const NAV_LINKS = [
 ];
 
 const SERVICES = [
-  { icon: Users, title: "Smart CRM", desc: "Keep track of your customers the easy way — like a Rolodex, but way better." },
-  { icon: MessageSquare, title: "Automated Follow-Ups", desc: "Friendly texts and emails sent at just the right time. Your customers will feel the love." },
-  { icon: CalendarCheck, title: "Online Booking", desc: "Customers pick a time that works, you show up ready. Simple as that." },
-  { icon: Star, title: "Reviews on Autopilot", desc: "Happy customers spread the word — we just make it easier for them." },
-  { icon: CreditCard, title: "Easy Invoicing", desc: "Send invoices, get paid. No chasing people down or messy paperwork." },
-  { icon: Bot, title: "AI Assistant", desc: "A friendly helper that answers questions when you're busy doing what you do best." },
+  {
+    icon: Users,
+    title: "Smart CRM",
+    desc: "Keep track of your customers the easy way — like a Rolodex, but way better.",
+    examples: [
+      "Auto-tags first-time vs repeat customers",
+      "Birthday and anniversary reminders",
+      "Notes you can search like email",
+    ],
+  },
+  {
+    icon: MessageSquare,
+    title: "Automated Follow-Ups",
+    desc: "Friendly texts and emails sent at just the right time. Your customers will feel the love.",
+    examples: [
+      "Thank-you text an hour after a visit",
+      "Re-engage customers gone quiet for 60+ days",
+      "Appointment reminders that cut no-shows",
+    ],
+  },
+  {
+    icon: CalendarCheck,
+    title: "Online Booking",
+    desc: "Customers pick a time that works, you show up ready. Simple as that.",
+    examples: [
+      "Real-time slots tied to your calendar",
+      "Deposits or pre-pay supported",
+      "Confirmation and reminder texts included",
+    ],
+  },
+  {
+    icon: Star,
+    title: "Reviews on Autopilot",
+    desc: "Happy customers spread the word — we just make it easier for them.",
+    examples: [
+      "Asks happy customers for a Google review",
+      "Flags negative feedback to you privately first",
+      "Tracks your star average over time",
+    ],
+  },
+  {
+    icon: CreditCard,
+    title: "Easy Invoicing",
+    desc: "Send invoices, get paid. No chasing people down or messy paperwork.",
+    examples: [
+      "Send by text or email",
+      "Stripe, Square, or ACH payment",
+      "Auto-reminders on unpaid invoices",
+    ],
+  },
+  {
+    icon: Bot,
+    title: "AI Assistant",
+    desc: "A friendly helper that answers questions when you're busy doing what you do best.",
+    examples: [
+      "Answers hours, pricing, and services 24/7",
+      "Books appointments while you're working",
+      "Hands off to you for anything tricky",
+    ],
+  },
 ];
 
 const STEPS = [
@@ -65,10 +125,30 @@ const STEPS = [
 ];
 
 const BENEFITS = [
-  { icon: Clock, title: "Get Your Evenings Back", desc: "Automate the busywork so you can make it to little league practice." },
-  { icon: UserPlus, title: "More Happy Customers", desc: "Never let a lead slip through the cracks again." },
-  { icon: GraduationCap, title: "We Speak Human", desc: "No tech jargon. We explain everything in plain English." },
-  { icon: LayoutGrid, title: "One Simple Dashboard", desc: "Replace that mess of apps with one easy-to-use system." },
+  {
+    icon: Clock,
+    title: "Get Your Evenings Back",
+    desc: "Automate the busywork so you can make it to little league practice.",
+    info: "Owners we work with reclaim 6–10 hours a week on average — most of it from manual follow-ups and review requests.",
+  },
+  {
+    icon: UserPlus,
+    title: "More Happy Customers",
+    desc: "Never let a lead slip through the cracks again.",
+    info: "Every inbound message is answered within 60 seconds, day or night, even when you're with another customer.",
+  },
+  {
+    icon: GraduationCap,
+    title: "We Speak Human",
+    desc: "No tech jargon. We explain everything in plain English.",
+    info: "You get a real human walkthrough on day one, plus short Loom videos any time something changes.",
+  },
+  {
+    icon: LayoutGrid,
+    title: "One Simple Dashboard",
+    desc: "Replace that mess of apps with one easy-to-use system.",
+    info: "Replaces tools like Mailchimp, Calendly, basic CRMs, and review-request apps — usually saves $80–$150/month.",
+  },
 ];
 
 const TESTIMONIALS = [
@@ -123,6 +203,43 @@ const SETUP_FEE = {
     "Onboarding walkthrough",
     "Go live in 48 hours",
   ],
+};
+
+type GrowthFeature = (typeof PRICING)[0]["features"][number];
+type ProFeature = (typeof PRICING)[1]["features"][number];
+
+const PRICING_FEATURE_INFO: {
+  Growth: Record<GrowthFeature, string>;
+  Pro: Record<ProFeature, string>;
+} = {
+  Growth: {
+    "AI Receptionist (up to 200 calls/month)":
+      "Answers inbound calls 24/7, takes messages, and books appointments. Overflow calls beyond 200/mo are billed at $0.30 each.",
+    "AI Support Agent (up to 500 conversations/month)":
+      "Handles website chat and SMS support. Counts only resolved conversations, not single messages back and forth.",
+    "Mobile-optimized website (up to 10 pages)":
+      "Includes home, services, about, and contact, plus 6 more pages of your choice. Additional pages are $99 each.",
+    "Lead capture + CRM sync":
+      "Form and chat leads land in your CRM automatically with source attribution so you know what's working.",
+    "Custom domain + hosting":
+      "We register and host your domain (yourbusiness.com). SSL certificate included.",
+    "Co-branded (Baker & Sons AI powered)":
+      'A small "Powered by Baker & Sons AI" tag in the footer. Upgrade to Pro for full white label.',
+    "Priority email support": "24-hour response time on weekdays.",
+  },
+  Pro: {
+    "Everything in Growth": "Every Growth feature included as the baseline.",
+    "Unlimited calls and conversations":
+      "No usage caps on the AI receptionist or support agent.",
+    "Voice AI + SMS + WhatsApp + email support":
+      "The same AI persona answers across every channel your customers reach you on.",
+    "Full white label (your brand, invisible to customers)":
+      "Zero Baker & Sons branding visible to your customers anywhere.",
+    "Google Ads integration":
+      "We connect Google Ads conversion tracking and provide a monthly performance report.",
+    "Monthly strategy call": "30-minute call to review your numbers and tune campaigns.",
+    "Priority support": "Same-day response on weekdays, plus an urgent line for outages.",
+  },
 };
 
 const HERO_IMAGES = [
@@ -301,19 +418,7 @@ export default function Index() {
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Tools That Actually Make Your Life Easier</h2>
             <p className="mt-3 text-muted-foreground text-sm">Tap any tool to see how it works for your business.</p>
           </div>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {SERVICES.map((s) => (
-              <Card key={s.title} className="group border border-[#E2E8F0] bg-white rounded-2xl shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5">
-                <CardContent className="p-5">
-                  <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                    <s.icon size={22} />
-                  </div>
-                  <h3 className="text-base font-semibold">{s.title}</h3>
-                  <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <ServicesGrid services={SERVICES} />
         </div>
       </section>
 
@@ -324,17 +429,7 @@ export default function Index() {
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">Easy as 1-2-3</p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Here's How We Get You Started</h2>
           </div>
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {STEPS.map((s) => (
-              <div key={s.num} className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-md shadow-primary/20 text-2xl font-bold">
-                  {s.num}
-                </div>
-                <h3 className="text-lg font-bold">{s.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-              </div>
-            ))}
-          </div>
+          <HowItWorksStepper steps={STEPS} />
         </div>
       </section>
 
@@ -354,7 +449,10 @@ export default function Index() {
                 <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
                   <b.icon size={24} />
                 </div>
-                <h3 className="text-base font-bold">{b.title}</h3>
+                <h3 className="inline-flex items-center justify-center gap-1 text-base font-bold">
+                  {b.title}
+                  <FeatureInfo content={b.info} label={b.title} side="bottom" />
+                </h3>
                 <p className="mt-1.5 text-sm text-muted-foreground">{b.desc}</p>
               </div>
             ))}
@@ -369,29 +467,7 @@ export default function Index() {
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">Happy Customers</p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Don't Take Our Word For It</h2>
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {TESTIMONIALS.map((t) => (
-              <Card key={t.name} className="border border-[#E2E8F0] shadow-none rounded-2xl bg-white">
-                <CardContent className="p-5">
-                  <div className="mb-3 flex gap-0.5 text-primary">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={15} fill="currentColor" />
-                    ))}
-                  </div>
-                  <p className="text-sm leading-relaxed text-muted-foreground">"{t.quote}"</p>
-                  <div className="mt-5 flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary font-bold text-xs">
-                      {t.name.split(" ").map((n) => n[0]).join("")}
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold">{t.name}</p>
-                      <p className="text-xs text-muted-foreground">{t.role}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <TestimonialsCarousel items={TESTIMONIALS} />
         </div>
       </section>
 
@@ -403,34 +479,35 @@ export default function Index() {
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Honest Pricing. No Surprises.</h2>
             <p className="mt-3 text-muted-foreground text-sm">Cancel anytime. We earn your business every month.</p>
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-2 max-w-4xl mx-auto items-stretch">
+          {/* Mobile pricing tabs */}
+          <div className="mt-10 max-w-md mx-auto md:hidden">
+            <Tabs defaultValue="Pro">
+              <TabsList className="grid h-12 w-full grid-cols-2 rounded-full bg-muted p-1">
+                {PRICING.map((p) => (
+                  <TabsTrigger key={p.tier} value={p.tier} className="rounded-full text-sm">
+                    {p.tier} · {p.price}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+              {PRICING.map((p) => (
+                <TabsContent key={p.tier} value={p.tier} className="mt-6">
+                  <PricingCard
+                    p={p}
+                    featureInfo={PRICING_FEATURE_INFO[p.tier as "Growth" | "Pro"]}
+                  />
+                </TabsContent>
+              ))}
+            </Tabs>
+          </div>
+
+          {/* Desktop pricing grid */}
+          <div className="mt-12 hidden max-w-4xl mx-auto items-stretch gap-6 md:grid md:grid-cols-2">
             {PRICING.map((p) => (
-              <Card key={p.tier} className={`relative flex flex-col rounded-2xl bg-white shadow-sm ${p.popular ? "border-2 border-[#2D3FBF] shadow-md" : "border border-[#E2E8F0]"}`}>
-                {p.popular && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-[#2D3FBF] px-4 py-1 text-xs font-bold text-white">
-                    ⭐ Most Popular
-                  </div>
-                )}
-                <CardContent className="p-6 flex flex-col flex-1">
-                  <h3 className="text-lg font-bold">{p.tier}</h3>
-                  <div className="mt-4">
-                    <span className="text-3xl font-extrabold">{p.price}</span>
-                    <span className="text-muted-foreground text-sm">/mo</span>
-                  </div>
-                  <p className="mt-1 text-xs text-muted-foreground">monthly subscription · no contract</p>
-                  <ul className="mt-5 space-y-2.5 flex-1">
-                    {p.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-sm">
-                        <Check size={15} className="text-primary shrink-0 mt-0.5" />
-                        <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button asChild className="mt-6 w-full rounded-full" variant={p.popular ? "default" : "outline"}>
-                    <a href="#contact">{p.cta}</a>
-                  </Button>
-                </CardContent>
-              </Card>
+              <PricingCard
+                key={p.tier}
+                p={p}
+                featureInfo={PRICING_FEATURE_INFO[p.tier as "Growth" | "Pro"]}
+              />
             ))}
           </div>
 
