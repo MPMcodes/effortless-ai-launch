@@ -418,19 +418,7 @@ export default function Index() {
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Tools That Actually Make Your Life Easier</h2>
             <p className="mt-3 text-muted-foreground text-sm">Tap any tool to see how it works for your business.</p>
           </div>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {SERVICES.map((s) => (
-              <Card key={s.title} className="group border border-[#E2E8F0] bg-white rounded-2xl shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5">
-                <CardContent className="p-5">
-                  <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                    <s.icon size={22} />
-                  </div>
-                  <h3 className="text-base font-semibold">{s.title}</h3>
-                  <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <ServicesGrid services={SERVICES} />
         </div>
       </section>
 
