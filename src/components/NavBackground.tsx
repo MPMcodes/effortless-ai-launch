@@ -93,9 +93,12 @@ export function NavBackground() {
     resize();
     draw();
     window.addEventListener("resize", resize);
+    const ro = new ResizeObserver(() => resize());
+    ro.observe(canvas);
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", resize);
+      ro.disconnect();
     };
   }, []);
 
