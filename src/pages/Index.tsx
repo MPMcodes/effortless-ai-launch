@@ -299,7 +299,7 @@ export default function Index() {
           <div className="mx-auto max-w-xl text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">What We Do</p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Tools That Actually Make Your Life Easier</h2>
-            <p className="mt-3 text-muted-foreground text-sm">No fluff, no complicated setup. Just stuff that works.</p>
+            <p className="mt-3 text-muted-foreground text-sm">Tap any tool to see how it works for your business.</p>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((s) => (
