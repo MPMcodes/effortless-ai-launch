@@ -601,7 +601,7 @@ export default function Index() {
                     <label htmlFor="message" className="mb-1 block text-sm font-medium">Tell us about your business</label>
                     <Textarea id="message" placeholder="What kind of business do you run? What's your biggest headache right now?" rows={3} className="min-h-[120px] rounded-xl text-base" />
                   </div>
-                  <Button type="submit" className="w-full gap-2 rounded-full" size="lg">
+                  <Button type="submit" className="w-full gap-2 rounded-full bg-gradient-primary bg-[length:200%_auto] shadow-glow transition-all hover:bg-right hover:shadow-glow-warm" size="lg">
                     Book a Friendly Chat <ArrowRight size={18} />
                   </Button>
                 </form>
