@@ -418,7 +418,7 @@ export default function Index() {
       <section id="services" className="bg-white py-10 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary">What We Do</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-gradient bg-[length:200%_auto] animate-gradient-shift">What We Do</p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Tools That Actually Make Your Life Easier</h2>
             <p className="mt-3 text-muted-foreground text-sm">Tap any tool to see how it works for your business.</p>
           </div>
@@ -430,7 +430,7 @@ export default function Index() {
       <section id="how-it-works" className="bg-white py-10 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary">Easy as 1-2-3</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-gradient bg-[length:200%_auto] animate-gradient-shift">Easy as 1-2-3</p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Here's How We Get You Started</h2>
           </div>
           <HowItWorksStepper steps={STEPS} />
@@ -468,7 +468,7 @@ export default function Index() {
       <section className="bg-white py-10 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary">Happy Customers</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-gradient bg-[length:200%_auto] animate-gradient-shift">Happy Customers</p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Don't Take Our Word For It</h2>
           </div>
           <TestimonialsCarousel items={TESTIMONIALS} />
@@ -479,7 +479,7 @@ export default function Index() {
       <section id="pricing" className="bg-white py-10 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary">Pricing</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-gradient bg-[length:200%_auto] animate-gradient-shift">Pricing</p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Honest Pricing. No Surprises.</h2>
             <p className="mt-3 text-muted-foreground text-sm">Cancel anytime. We earn your business every month.</p>
           </div>
