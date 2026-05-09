@@ -50,12 +50,66 @@ const NAV_LINKS = [
 ];
 
 const SERVICES = [
-  { icon: Users, title: "Smart CRM", desc: "Keep track of your customers the easy way — like a Rolodex, but way better." },
-  { icon: MessageSquare, title: "Automated Follow-Ups", desc: "Friendly texts and emails sent at just the right time. Your customers will feel the love." },
-  { icon: CalendarCheck, title: "Online Booking", desc: "Customers pick a time that works, you show up ready. Simple as that." },
-  { icon: Star, title: "Reviews on Autopilot", desc: "Happy customers spread the word — we just make it easier for them." },
-  { icon: CreditCard, title: "Easy Invoicing", desc: "Send invoices, get paid. No chasing people down or messy paperwork." },
-  { icon: Bot, title: "AI Assistant", desc: "A friendly helper that answers questions when you're busy doing what you do best." },
+  {
+    icon: Users,
+    title: "Smart CRM",
+    desc: "Keep track of your customers the easy way — like a Rolodex, but way better.",
+    examples: [
+      "Auto-tags first-time vs repeat customers",
+      "Birthday and anniversary reminders",
+      "Notes you can search like email",
+    ],
+  },
+  {
+    icon: MessageSquare,
+    title: "Automated Follow-Ups",
+    desc: "Friendly texts and emails sent at just the right time. Your customers will feel the love.",
+    examples: [
+      "Thank-you text an hour after a visit",
+      "Re-engage customers gone quiet for 60+ days",
+      "Appointment reminders that cut no-shows",
+    ],
+  },
+  {
+    icon: CalendarCheck,
+    title: "Online Booking",
+    desc: "Customers pick a time that works, you show up ready. Simple as that.",
+    examples: [
+      "Real-time slots tied to your calendar",
+      "Deposits or pre-pay supported",
+      "Confirmation and reminder texts included",
+    ],
+  },
+  {
+    icon: Star,
+    title: "Reviews on Autopilot",
+    desc: "Happy customers spread the word — we just make it easier for them.",
+    examples: [
+      "Asks happy customers for a Google review",
+      "Flags negative feedback to you privately first",
+      "Tracks your star average over time",
+    ],
+  },
+  {
+    icon: CreditCard,
+    title: "Easy Invoicing",
+    desc: "Send invoices, get paid. No chasing people down or messy paperwork.",
+    examples: [
+      "Send by text or email",
+      "Stripe, Square, or ACH payment",
+      "Auto-reminders on unpaid invoices",
+    ],
+  },
+  {
+    icon: Bot,
+    title: "AI Assistant",
+    desc: "A friendly helper that answers questions when you're busy doing what you do best.",
+    examples: [
+      "Answers hours, pricing, and services 24/7",
+      "Books appointments while you're working",
+      "Hands off to you for anything tricky",
+    ],
+  },
 ];
 
 const STEPS = [
@@ -65,10 +119,30 @@ const STEPS = [
 ];
 
 const BENEFITS = [
-  { icon: Clock, title: "Get Your Evenings Back", desc: "Automate the busywork so you can make it to little league practice." },
-  { icon: UserPlus, title: "More Happy Customers", desc: "Never let a lead slip through the cracks again." },
-  { icon: GraduationCap, title: "We Speak Human", desc: "No tech jargon. We explain everything in plain English." },
-  { icon: LayoutGrid, title: "One Simple Dashboard", desc: "Replace that mess of apps with one easy-to-use system." },
+  {
+    icon: Clock,
+    title: "Get Your Evenings Back",
+    desc: "Automate the busywork so you can make it to little league practice.",
+    info: "Owners we work with reclaim 6–10 hours a week on average — most of it from manual follow-ups and review requests.",
+  },
+  {
+    icon: UserPlus,
+    title: "More Happy Customers",
+    desc: "Never let a lead slip through the cracks again.",
+    info: "Every inbound message is answered within 60 seconds, day or night, even when you're with another customer.",
+  },
+  {
+    icon: GraduationCap,
+    title: "We Speak Human",
+    desc: "No tech jargon. We explain everything in plain English.",
+    info: "You get a real human walkthrough on day one, plus short Loom videos any time something changes.",
+  },
+  {
+    icon: LayoutGrid,
+    title: "One Simple Dashboard",
+    desc: "Replace that mess of apps with one easy-to-use system.",
+    info: "Replaces tools like Mailchimp, Calendly, basic CRMs, and review-request apps — usually saves $80–$150/month.",
+  },
 ];
 
 const TESTIMONIALS = [
