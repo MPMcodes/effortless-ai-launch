@@ -60,7 +60,7 @@ const SERVICES = [
 
 const STEPS = [
   { num: "1", icon: PhoneCall, title: "Let's Chat", desc: "We'll grab a coffee (virtually!) and learn about your business. No sales pitch, promise." },
-  { num: "2", icon: Settings, title: "We Build It For You", desc: "Our team sets everything up while you keep doing what you love. Zero homework." },
+  { num: "2", icon: Settings, title: "We Build It For You", desc: "We build it, integrate it, and train it on your business. Zero homework." },
   { num: "3", icon: TrendingUp, title: "Watch It Grow", desc: "More customers, more reviews, less stress. That's the Baker & Sons way." },
 ];
 
