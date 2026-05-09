@@ -350,22 +350,26 @@ export default function Index() {
       </nav>
 
       {/* HERO */}
-      <section className="relative isolate overflow-hidden">
+      <section className="relative isolate overflow-hidden bg-mesh">
         <HeroBackground />
-        <div className="mx-auto flex max-w-6xl flex-col-reverse items-center gap-8 px-4 py-12 sm:gap-10 sm:px-6 sm:py-16 lg:flex-row lg:gap-14 lg:px-8 lg:py-24">
-          <div className="flex-1 text-center lg:text-left">
-            <div className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-[11px] font-medium text-primary sm:text-xs">
-              <Sparkles size={14} /> Built for businesses like yours
+        {/* Floating gradient blobs */}
+        <span className="blob animate-float-slow -left-24 top-10 h-72 w-72 bg-gradient-primary md:h-96 md:w-96" aria-hidden="true" />
+        <span className="blob animate-float-slower right-0 -top-10 h-64 w-64 bg-gradient-warm md:h-80 md:w-80" aria-hidden="true" />
+        <span className="blob animate-float-slow bottom-0 left-1/3 h-56 w-56 bg-gradient-cool opacity-40" aria-hidden="true" />
+        <div className="relative mx-auto flex max-w-6xl flex-col-reverse items-center gap-8 px-4 py-12 sm:gap-10 sm:px-6 sm:py-16 lg:flex-row lg:gap-14 lg:px-8 lg:py-24">
+          <div className="flex-1 text-center lg:text-left animate-fade-in">
+            <div className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-white/70 px-3 py-1 text-[11px] font-medium text-primary shadow-sm backdrop-blur sm:text-xs">
+              <Sparkles size={14} className="text-accent-orange" /> Built for businesses like yours
             </div>
             <h1 className="text-[28px] font-bold leading-[1.15] tracking-tight sm:text-4xl lg:text-5xl">
               Smart AI Tools for{" "}
-              <span className="text-primary">Your</span> Small Business
+              <span className="text-gradient bg-[length:200%_auto] animate-gradient-shift">Your</span> Small Business
             </h1>
             <p className="mx-auto mt-4 max-w-lg text-[15px] text-muted-foreground sm:mt-5 sm:text-base lg:mx-0 leading-relaxed">
               The friendly tech team you always wished you had. We handle the setup so you can focus on your business.
             </p>
             <div className="mt-6 flex flex-col items-stretch gap-2.5 sm:mt-7 sm:flex-row sm:items-center sm:justify-center sm:gap-3 lg:justify-start">
-              <Button size="lg" asChild className="w-full gap-2 rounded-full px-7 text-base sm:w-auto">
+              <Button size="lg" asChild className="w-full gap-2 rounded-full bg-gradient-primary bg-[length:200%_auto] px-7 text-base shadow-glow transition-all hover:bg-right hover:shadow-glow-warm sm:w-auto">
                 <a href="#contact">
                   Get Your Free Demo <ArrowRight size={18} />
                 </a>
@@ -375,7 +379,7 @@ export default function Index() {
               </Button>
             </div>
           </div>
-          <div className="w-full lg:flex-1 relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-xl shadow-primary/10 aspect-[4/3] sm:aspect-[7/5] lg:aspect-auto lg:min-h-[340px]">
+          <div className="w-full lg:flex-1 relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-glow aspect-[4/3] sm:aspect-[7/5] lg:aspect-auto lg:min-h-[340px] ring-1 ring-white/40">
             {HERO_IMAGES.map((img, i) => (
               <img
                 key={img.id}
@@ -414,7 +418,7 @@ export default function Index() {
       <section id="services" className="bg-white py-10 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary">What We Do</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-gradient bg-[length:200%_auto] animate-gradient-shift">What We Do</p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Tools That Actually Make Your Life Easier</h2>
             <p className="mt-3 text-muted-foreground text-sm">Tap any tool to see how it works for your business.</p>
           </div>
@@ -426,7 +430,7 @@ export default function Index() {
       <section id="how-it-works" className="bg-white py-10 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary">Easy as 1-2-3</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-gradient bg-[length:200%_auto] animate-gradient-shift">Easy as 1-2-3</p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Here's How We Get You Started</h2>
           </div>
           <HowItWorksStepper steps={STEPS} />
@@ -434,7 +438,7 @@ export default function Index() {
       </section>
 
       {/* BENEFITS */}
-      <section className="bg-[#F1F5F9] py-10 sm:py-20">
+      <section className="relative overflow-hidden bg-[#F1F5F9] bg-mesh py-10 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <div className="inline-flex items-center gap-1.5 mb-3 text-primary">
@@ -444,18 +448,29 @@ export default function Index() {
             <p className="mt-3 text-muted-foreground text-sm">We treat every business like it's our own.</p>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {BENEFITS.map((b) => (
-              <div key={b.title} className="text-center rounded-2xl bg-white p-6 shadow-sm border border-[#E2E8F0]">
-                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                  <b.icon size={24} />
+            {BENEFITS.map((b, i) => {
+              const tints = [
+                "from-primary/15 to-accent-violet/15 text-primary",
+                "from-accent-violet/15 to-accent-pink/15 text-accent-violet",
+                "from-accent-orange/20 to-accent-pink/15 text-accent-orange",
+                "from-accent-cyan/20 to-primary/15 text-accent-cyan",
+              ];
+              return (
+                <div
+                  key={b.title}
+                  className="group rounded-2xl border border-white/60 bg-white/80 p-6 text-center shadow-sm backdrop-blur transition-all hover:-translate-y-1 hover:shadow-glow"
+                >
+                  <div className={`mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${tints[i % tints.length]} transition-transform group-hover:scale-110`}>
+                    <b.icon size={24} />
+                  </div>
+                  <h3 className="inline-flex items-center justify-center gap-1 text-base font-bold">
+                    {b.title}
+                    <FeatureInfo content={b.info} label={b.title} side="bottom" />
+                  </h3>
+                  <p className="mt-1.5 text-sm text-muted-foreground">{b.desc}</p>
                 </div>
-                <h3 className="inline-flex items-center justify-center gap-1 text-base font-bold">
-                  {b.title}
-                  <FeatureInfo content={b.info} label={b.title} side="bottom" />
-                </h3>
-                <p className="mt-1.5 text-sm text-muted-foreground">{b.desc}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -464,7 +479,7 @@ export default function Index() {
       <section className="bg-white py-10 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary">Happy Customers</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-gradient bg-[length:200%_auto] animate-gradient-shift">Happy Customers</p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Don't Take Our Word For It</h2>
           </div>
           <TestimonialsCarousel items={TESTIMONIALS} />
@@ -475,7 +490,7 @@ export default function Index() {
       <section id="pricing" className="bg-white py-10 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary">Pricing</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-gradient bg-[length:200%_auto] animate-gradient-shift">Pricing</p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Honest Pricing. No Surprises.</h2>
             <p className="mt-3 text-muted-foreground text-sm">Cancel anytime. We earn your business every month.</p>
           </div>
@@ -586,7 +601,7 @@ export default function Index() {
                     <label htmlFor="message" className="mb-1 block text-sm font-medium">Tell us about your business</label>
                     <Textarea id="message" placeholder="What kind of business do you run? What's your biggest headache right now?" rows={3} className="min-h-[120px] rounded-xl text-base" />
                   </div>
-                  <Button type="submit" className="w-full gap-2 rounded-full" size="lg">
+                  <Button type="submit" className="w-full gap-2 rounded-full bg-gradient-primary bg-[length:200%_auto] shadow-glow transition-all hover:bg-right hover:shadow-glow-warm" size="lg">
                     Book a Friendly Chat <ArrowRight size={18} />
                   </Button>
                 </form>

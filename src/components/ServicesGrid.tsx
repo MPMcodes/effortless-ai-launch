@@ -62,10 +62,11 @@ export function ServicesGrid({ services }: ServicesGridProps) {
         {services.map((s) => (
           <Card
             key={s.title}
-            className="group rounded-2xl border border-[#E2E8F0] bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+            className="group relative overflow-hidden rounded-2xl border border-[#E2E8F0] bg-white shadow-sm transition-all hover:-translate-y-1 hover:border-transparent hover:shadow-glow"
           >
+            <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 -top-px h-1 bg-gradient-primary opacity-0 transition-opacity group-hover:opacity-100" />
             <CardContent className="p-5">
-              <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+              <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all group-hover:bg-gradient-primary group-hover:text-primary-foreground group-hover:shadow-glow">
                 <s.icon size={22} />
               </div>
               <div className="flex items-center gap-1">
