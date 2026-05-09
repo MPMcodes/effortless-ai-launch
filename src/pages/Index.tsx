@@ -551,6 +551,7 @@ export default function Index() {
           </div>
         </div>
       </footer>
+      <StickyMobileCTA phoneHref="tel:+15551234567" />
     </div>
   );
 }
