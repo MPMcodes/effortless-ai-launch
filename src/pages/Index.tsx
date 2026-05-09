@@ -495,19 +495,19 @@ export default function Index() {
                 <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
                   <div>
                     <label htmlFor="name" className="mb-1 block text-sm font-medium">Your Name</label>
-                    <Input id="name" placeholder="John Smith" className="rounded-xl" />
+                    <Input id="name" placeholder="John Smith" className="h-12 rounded-xl text-base" />
                   </div>
                   <div>
                     <label htmlFor="email" className="mb-1 block text-sm font-medium">Email</label>
-                    <Input id="email" type="email" placeholder="john@mybusiness.com" className="rounded-xl" />
+                    <Input id="email" type="email" placeholder="john@mybusiness.com" className="h-12 rounded-xl text-base" />
                   </div>
                   <div>
                     <label htmlFor="phone" className="mb-1 block text-sm font-medium">Phone</label>
-                    <Input id="phone" type="tel" placeholder="(555) 000-0000" className="rounded-xl" />
+                    <Input id="phone" type="tel" placeholder="(555) 000-0000" className="h-12 rounded-xl text-base" />
                   </div>
                   <div>
                     <label htmlFor="message" className="mb-1 block text-sm font-medium">Tell us about your business</label>
-                    <Textarea id="message" placeholder="What kind of business do you run? What's your biggest headache right now?" rows={3} className="rounded-xl" />
+                    <Textarea id="message" placeholder="What kind of business do you run? What's your biggest headache right now?" rows={3} className="min-h-[120px] rounded-xl text-base" />
                   </div>
                   <Button type="submit" className="w-full gap-2 rounded-full" size="lg">
                     Book a Friendly Chat <ArrowRight size={18} />
