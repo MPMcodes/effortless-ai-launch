@@ -531,7 +531,7 @@ export default function Index() {
               <h4 className="font-semibold mb-3 text-sm">Quick Links</h4>
               <div className="flex flex-col gap-1.5">
                 {NAV_LINKS.map((l) => (
-                  <a key={l.href} href={l.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">{l.label}</a>
+                  <a key={l.href} href={l.href} className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-primary transition-colors">{l.label}</a>
                 ))}
               </div>
             </div>
