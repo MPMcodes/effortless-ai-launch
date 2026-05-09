@@ -438,7 +438,7 @@ export default function Index() {
       </section>
 
       {/* BENEFITS */}
-      <section className="bg-[#F1F5F9] py-10 sm:py-20">
+      <section className="relative overflow-hidden bg-[#F1F5F9] bg-mesh py-10 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <div className="inline-flex items-center gap-1.5 mb-3 text-primary">
