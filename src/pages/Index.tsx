@@ -429,17 +429,7 @@ export default function Index() {
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">Easy as 1-2-3</p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Here's How We Get You Started</h2>
           </div>
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {STEPS.map((s) => (
-              <div key={s.num} className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-md shadow-primary/20 text-2xl font-bold">
-                  {s.num}
-                </div>
-                <h3 className="text-lg font-bold">{s.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-              </div>
-            ))}
-          </div>
+          <HowItWorksStepper steps={STEPS} />
         </div>
       </section>
 
