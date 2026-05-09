@@ -350,22 +350,26 @@ export default function Index() {
       </nav>
 
       {/* HERO */}
-      <section className="relative isolate overflow-hidden">
+      <section className="relative isolate overflow-hidden bg-mesh">
         <HeroBackground />
-        <div className="mx-auto flex max-w-6xl flex-col-reverse items-center gap-8 px-4 py-12 sm:gap-10 sm:px-6 sm:py-16 lg:flex-row lg:gap-14 lg:px-8 lg:py-24">
-          <div className="flex-1 text-center lg:text-left">
-            <div className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-[11px] font-medium text-primary sm:text-xs">
-              <Sparkles size={14} /> Built for businesses like yours
+        {/* Floating gradient blobs */}
+        <span className="blob animate-float-slow -left-24 top-10 h-72 w-72 bg-gradient-primary md:h-96 md:w-96" aria-hidden="true" />
+        <span className="blob animate-float-slower right-0 -top-10 h-64 w-64 bg-gradient-warm md:h-80 md:w-80" aria-hidden="true" />
+        <span className="blob animate-float-slow bottom-0 left-1/3 h-56 w-56 bg-gradient-cool opacity-40" aria-hidden="true" />
+        <div className="relative mx-auto flex max-w-6xl flex-col-reverse items-center gap-8 px-4 py-12 sm:gap-10 sm:px-6 sm:py-16 lg:flex-row lg:gap-14 lg:px-8 lg:py-24">
+          <div className="flex-1 text-center lg:text-left animate-fade-in">
+            <div className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-white/70 px-3 py-1 text-[11px] font-medium text-primary shadow-sm backdrop-blur sm:text-xs">
+              <Sparkles size={14} className="text-accent-orange" /> Built for businesses like yours
             </div>
             <h1 className="text-[28px] font-bold leading-[1.15] tracking-tight sm:text-4xl lg:text-5xl">
               Smart AI Tools for{" "}
-              <span className="text-primary">Your</span> Small Business
+              <span className="text-gradient bg-[length:200%_auto] animate-gradient-shift">Your</span> Small Business
             </h1>
             <p className="mx-auto mt-4 max-w-lg text-[15px] text-muted-foreground sm:mt-5 sm:text-base lg:mx-0 leading-relaxed">
               The friendly tech team you always wished you had. We handle the setup so you can focus on your business.
             </p>
             <div className="mt-6 flex flex-col items-stretch gap-2.5 sm:mt-7 sm:flex-row sm:items-center sm:justify-center sm:gap-3 lg:justify-start">
-              <Button size="lg" asChild className="w-full gap-2 rounded-full px-7 text-base sm:w-auto">
+              <Button size="lg" asChild className="w-full gap-2 rounded-full bg-gradient-primary bg-[length:200%_auto] px-7 text-base shadow-glow transition-all hover:bg-right hover:shadow-glow-warm sm:w-auto">
                 <a href="#contact">
                   Get Your Free Demo <ArrowRight size={18} />
                 </a>
@@ -375,7 +379,7 @@ export default function Index() {
               </Button>
             </div>
           </div>
-          <div className="w-full lg:flex-1 relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-xl shadow-primary/10 aspect-[4/3] sm:aspect-[7/5] lg:aspect-auto lg:min-h-[340px]">
+          <div className="w-full lg:flex-1 relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-glow aspect-[4/3] sm:aspect-[7/5] lg:aspect-auto lg:min-h-[340px] ring-1 ring-white/40">
             {HERO_IMAGES.map((img, i) => (
               <img
                 key={img.id}
