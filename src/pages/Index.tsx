@@ -539,8 +539,8 @@ export default function Index() {
               <h4 className="font-semibold mb-3 text-sm">Follow Along</h4>
               <div className="flex gap-2.5">
                 {[Facebook, Instagram].map((Icon, i) => (
-                  <a key={i} href="#" className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
-                    <Icon size={16} />
+                  <a key={i} href="#" className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
+                    <Icon size={18} />
                   </a>
                 ))}
               </div>
