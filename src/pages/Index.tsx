@@ -479,34 +479,35 @@ export default function Index() {
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Honest Pricing. No Surprises.</h2>
             <p className="mt-3 text-muted-foreground text-sm">Cancel anytime. We earn your business every month.</p>
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-2 max-w-4xl mx-auto items-stretch">
+          {/* Mobile pricing tabs */}
+          <div className="mt-10 max-w-md mx-auto md:hidden">
+            <Tabs defaultValue="Pro">
+              <TabsList className="grid h-12 w-full grid-cols-2 rounded-full bg-muted p-1">
+                {PRICING.map((p) => (
+                  <TabsTrigger key={p.tier} value={p.tier} className="rounded-full text-sm">
+                    {p.tier} · {p.price}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+              {PRICING.map((p) => (
+                <TabsContent key={p.tier} value={p.tier} className="mt-6">
+                  <PricingCard
+                    p={p}
+                    featureInfo={PRICING_FEATURE_INFO[p.tier as "Growth" | "Pro"]}
+                  />
+                </TabsContent>
+              ))}
+            </Tabs>
+          </div>
+
+          {/* Desktop pricing grid */}
+          <div className="mt-12 hidden max-w-4xl mx-auto items-stretch gap-6 md:grid md:grid-cols-2">
             {PRICING.map((p) => (
-              <Card key={p.tier} className={`relative flex flex-col rounded-2xl bg-white shadow-sm ${p.popular ? "border-2 border-[#2D3FBF] shadow-md" : "border border-[#E2E8F0]"}`}>
-                {p.popular && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-[#2D3FBF] px-4 py-1 text-xs font-bold text-white">
-                    ⭐ Most Popular
-                  </div>
-                )}
-                <CardContent className="p-6 flex flex-col flex-1">
-                  <h3 className="text-lg font-bold">{p.tier}</h3>
-                  <div className="mt-4">
-                    <span className="text-3xl font-extrabold">{p.price}</span>
-                    <span className="text-muted-foreground text-sm">/mo</span>
-                  </div>
-                  <p className="mt-1 text-xs text-muted-foreground">monthly subscription · no contract</p>
-                  <ul className="mt-5 space-y-2.5 flex-1">
-                    {p.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-sm">
-                        <Check size={15} className="text-primary shrink-0 mt-0.5" />
-                        <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button asChild className="mt-6 w-full rounded-full" variant={p.popular ? "default" : "outline"}>
-                    <a href="#contact">{p.cta}</a>
-                  </Button>
-                </CardContent>
-              </Card>
+              <PricingCard
+                key={p.tier}
+                p={p}
+                featureInfo={PRICING_FEATURE_INFO[p.tier as "Growth" | "Pro"]}
+              />
             ))}
           </div>
 
