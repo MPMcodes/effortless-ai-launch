@@ -294,7 +294,7 @@ export default function Index() {
       <div id="hero-sentinel" aria-hidden="true" />
 
       {/* SERVICES */}
-      <section id="services" className="bg-white py-14 sm:py-24">
+      <section id="services" className="bg-white py-10 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">What We Do</p>
@@ -318,7 +318,7 @@ export default function Index() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section id="how-it-works" className="bg-white py-14 sm:py-24">
+      <section id="how-it-works" className="bg-white py-10 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">Easy as 1-2-3</p>
@@ -339,7 +339,7 @@ export default function Index() {
       </section>
 
       {/* BENEFITS */}
-      <section className="bg-[#F1F5F9] py-14 sm:py-24">
+      <section className="bg-[#F1F5F9] py-10 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <div className="inline-flex items-center gap-1.5 mb-3 text-primary">
@@ -363,7 +363,7 @@ export default function Index() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="bg-white py-14 sm:py-24">
+      <section className="bg-white py-10 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">Happy Customers</p>
@@ -396,7 +396,7 @@ export default function Index() {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" className="bg-white py-14 sm:py-24">
+      <section id="pricing" className="bg-white py-10 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">Pricing</p>
@@ -464,7 +464,7 @@ export default function Index() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="bg-white py-14 sm:py-24">
+      <section id="contact" className="bg-white py-10 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-2">
             <div>
