@@ -126,21 +126,44 @@ const SETUP_FEE = {
 };
 
 const HERO_IMAGES = [
-  { src: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=700&h=500&fit=crop", alt: "IT team collaborating in modern office" },
-  { src: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=700&h=500&fit=crop", alt: "Small business owner using laptop" },
-  { src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&h=500&fit=crop", alt: "Team working on IT solutions together" },
-  { src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&h=500&fit=crop", alt: "Business professionals discussing technology" },
+  { id: "photo-1556761175-5973dc0f32e7", alt: "IT team collaborating in modern office" },
+  { id: "photo-1553877522-43269d4ea984", alt: "Small business owner using laptop" },
+  { id: "photo-1522071820081-009f0129c71c", alt: "Team working on IT solutions together" },
 ];
 
+const heroWidths = [640, 1024, 1600];
+const heroSrc = (id: string, w: number) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&q=70&w=${w}`;
+const heroSrcSet = (id: string) =>
+  heroWidths.map((w) => `${heroSrc(id, w)} ${w}w`).join(", ");
+
 export default function Index() {
-  const [mobileOpen, setMobileOpen] = useState(false);
   const [heroIdx, setHeroIdx] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setHeroIdx((prev) => (prev + 1) % HERO_IMAGES.length);
-    }, 4000);
-    return () => clearInterval(timer);
+    if (typeof window === "undefined") return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+    let timer: ReturnType<typeof setInterval> | null = null;
+    const start = () => {
+      if (timer) return;
+      timer = setInterval(() => {
+        setHeroIdx((prev) => (prev + 1) % HERO_IMAGES.length);
+      }, 4000);
+    };
+    const stop = () => {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    };
+    const onVis = () => (document.hidden ? stop() : start());
+    start();
+    document.addEventListener("visibilitychange", onVis);
+    return () => {
+      stop();
+      document.removeEventListener("visibilitychange", onVis);
+    };
   }, []);
 
   return (
