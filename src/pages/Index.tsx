@@ -449,7 +449,10 @@ export default function Index() {
                 <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
                   <b.icon size={24} />
                 </div>
-                <h3 className="text-base font-bold">{b.title}</h3>
+                <h3 className="inline-flex items-center justify-center gap-1 text-base font-bold">
+                  {b.title}
+                  <FeatureInfo content={b.info} label={b.title} side="bottom" />
+                </h3>
                 <p className="mt-1.5 text-sm text-muted-foreground">{b.desc}</p>
               </div>
             ))}
