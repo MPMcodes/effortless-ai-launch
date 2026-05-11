@@ -51,7 +51,7 @@ import { FeatureInfo } from "@/components/FeatureInfo";
 const NAV_LINKS = [
   { label: "Services", href: "#services" },
   { label: "How It Works", href: "#how-it-works" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Packages", href: "#pricing" },
   { label: "Contact", href: "#contact" },
 ];
 
