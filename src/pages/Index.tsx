@@ -472,21 +472,21 @@ export default function Index() {
         </div>
       </section>
 
-      {/* PRICING */}
+      {/* PACKAGES */}
       <section id="pricing" className="bg-white py-10 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-gradient bg-[length:200%_auto] animate-gradient-shift">Pricing</p>
-            <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Honest Pricing. No Surprises.</h2>
-            <p className="mt-3 text-muted-foreground text-sm">Cancel anytime. We earn your business every month.</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-gradient bg-[length:200%_auto] animate-gradient-shift">Packages</p>
+            <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Pick the Package That Fits</h2>
+            <p className="mt-3 text-muted-foreground text-sm">Two simple options. Reach out and we'll tailor a quote to your business.</p>
           </div>
-          {/* Mobile pricing tabs */}
+          {/* Mobile package tabs */}
           <div className="mt-10 max-w-md mx-auto md:hidden">
             <Tabs defaultValue="Pro">
               <TabsList className="grid h-12 w-full grid-cols-2 rounded-full bg-muted p-1">
                 {PRICING.map((p) => (
                   <TabsTrigger key={p.tier} value={p.tier} className="rounded-full text-sm">
-                    {p.tier} · {p.price}
+                    {p.tier}
                   </TabsTrigger>
                 ))}
               </TabsList>
@@ -501,7 +501,7 @@ export default function Index() {
             </Tabs>
           </div>
 
-          {/* Desktop pricing grid */}
+          {/* Desktop package grid */}
           <div className="mt-12 hidden max-w-4xl mx-auto items-stretch gap-6 md:grid md:grid-cols-2">
             {PRICING.map((p) => (
               <PricingCard
@@ -511,33 +511,6 @@ export default function Index() {
               />
             ))}
           </div>
-
-          {/* One-Time Setup Fee */}
-          <Card className="mt-8 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] shadow-none">
-            <CardContent className="p-6 sm:p-8">
-              <div className="grid gap-6 md:grid-cols-3 md:items-center">
-                <div className="md:col-span-1">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">{SETUP_FEE.label}</p>
-                  <div className="mt-2 flex items-baseline gap-2">
-                    <span className="text-3xl font-extrabold">{SETUP_FEE.price}</span>
-                    <span className="text-muted-foreground text-sm">{SETUP_FEE.priceSuffix}</span>
-                  </div>
-                  <p className="mt-2 text-xs text-muted-foreground">{SETUP_FEE.subtitle}</p>
-                </div>
-                <div className="md:col-span-2">
-                  <p className="text-sm font-semibold mb-3">Includes:</p>
-                  <ul className="grid gap-2 sm:grid-cols-2">
-                    {SETUP_FEE.includes.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-sm">
-                        <Check size={15} className="text-primary shrink-0 mt-0.5" />
-                        <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </section>
 
