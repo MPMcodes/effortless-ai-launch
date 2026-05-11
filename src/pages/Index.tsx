@@ -31,7 +31,7 @@ import {
   MapPin,
   Facebook,
   Instagram,
-  Check,
+  
   Heart,
   Sparkles,
   HandHeart,
