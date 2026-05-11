@@ -160,7 +160,7 @@ const TESTIMONIALS = [
 const PRICING = [
   {
     tier: "Growth",
-    price: "$349",
+    tagline: "For small businesses ready to automate the essentials.",
     features: [
       "AI Receptionist (up to 200 calls/month)",
       "AI Support Agent (up to 500 conversations/month)",
@@ -175,7 +175,7 @@ const PRICING = [
   },
   {
     tier: "Pro",
-    price: "$499",
+    tagline: "For growing businesses that want the full white-label experience.",
     features: [
       "Everything in Growth",
       "Unlimited calls and conversations",
@@ -190,20 +190,6 @@ const PRICING = [
   },
 ];
 
-const SETUP_FEE = {
-  label: "One-Time Setup Fee",
-  price: "$1,499",
-  priceSuffix: "flat",
-  subtitle: "Required with any subscription · paid once",
-  includes: [
-    "Brand discovery session",
-    "AI agent training on your business content",
-    "Custom design direction",
-    "Domain + integrations setup",
-    "Onboarding walkthrough",
-    "Go live in 48 hours",
-  ],
-};
 
 type GrowthFeature = (typeof PRICING)[0]["features"][number];
 type ProFeature = (typeof PRICING)[1]["features"][number];
