@@ -6,7 +6,8 @@ import { FeatureInfo } from "./FeatureInfo";
 
 export interface PricingTier {
   tier: string;
-  price: string;
+  price?: string;
+  tagline?: string;
   features: string[];
   cta: string;
   popular: boolean;
