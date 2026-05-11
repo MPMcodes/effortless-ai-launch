@@ -6,7 +6,8 @@ import { FeatureInfo } from "./FeatureInfo";
 
 export interface PricingTier {
   tier: string;
-  price: string;
+  price?: string;
+  tagline?: string;
   features: string[];
   cta: string;
   popular: boolean;
@@ -33,11 +34,9 @@ export function PricingCard({ p, featureInfo }: Props) {
       )}
       <CardContent className="flex flex-1 flex-col p-6">
         <h3 className="text-lg font-bold">{p.tier}</h3>
-        <div className="mt-4">
-          <span className="text-3xl font-extrabold">{p.price}</span>
-          <span className="text-sm text-muted-foreground">/mo</span>
-        </div>
-        <p className="mt-1 text-xs text-muted-foreground">monthly subscription · no contract</p>
+        {p.tagline && (
+          <p className="mt-2 text-sm text-muted-foreground">{p.tagline}</p>
+        )}
         <ul className="mt-5 flex-1 space-y-2.5">
           {p.features.map((f) => (
             <li key={f} className="flex items-start gap-2 text-sm">
